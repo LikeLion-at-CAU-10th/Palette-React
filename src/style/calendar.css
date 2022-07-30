@@ -1,13 +1,16 @@
+html {
+  background-color: #364fc6;
+}
+
 button {
   cursor: pointer;
 }
 
 .container {
   width: 150vh;
-  height: 80vh;
+  height: 75vh;
   margin: auto;
-  padding: 20px 20px;
-  border: 5px solid rgba(128, 128, 128, 0.267);
+  padding: 20px 5px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -17,6 +20,11 @@ button {
 
 .container .title {
   display: flex;
+  background-color: red;
+  width: 31vh;
+  height: 6vh;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
 }
 
 .container .title > button {

@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import classNames from "classnames/bind";
 import style from "../style/calendar.css";
-import styled from "styled-components";
 
 const cx = classNames.bind(style);
 
