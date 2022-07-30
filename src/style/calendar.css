@@ -17,8 +17,7 @@ button {
   transform: translate(-50%, -50%);
   background-color: black;
 }
-
-.container .title {
+. .container .title {
   display: flex;
   background-color: red;
   width: 31vh;
