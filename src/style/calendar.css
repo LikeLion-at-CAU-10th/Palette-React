@@ -17,32 +17,6 @@ button {
   transform: translate(-50%, -50%);
   background-color: black;
 }
-. .container .title {
-  display: flex;
-  background-color: red;
-  width: 31vh;
-  height: 6vh;
-  border-top-left-radius: 15%;
-  border-top-right-radius: 15%;
-}
-
-.container .title > button {
-  border: none;
-  margin-left: 5px;
-  height: 20px;
-  align-self: center;
-  background: none;
-}
-
-.container .title .pagination {
-  align-self: center;
-}
-.container .title .pagination button {
-  margin: 0 10px;
-  border: none;
-  background: none;
-  color: white;
-}
 
 .container .week {
   display: flex;

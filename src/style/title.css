@@ -1,0 +1,37 @@
+.datebar .title {
+  background-color: black;
+  width: 80vh;
+  height: 9vh;
+  border-top-left-radius: 15%;
+  border-top-right-radius: 15%;
+  display: flex;
+}
+
+.datebar .title > button {
+  border: none;
+  margin-left: 5px;
+  height: 20px;
+  background: none;
+  display: flex;
+}
+.datebar.title .pagination {
+  display: flex;
+}
+
+.datebar.title .pagination button {
+  border: none;
+  background: none;
+  display: flex;
+}
+
+.datebar .title .pagination .prevbutton {
+  background-color: red;
+}
+
+.datebar .title .pagination .nextbutton {
+  background-color: yellow;
+}
+
+.datebar .title .pagination .dateselection {
+  background-color: plum;
+}

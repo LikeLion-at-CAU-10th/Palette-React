@@ -1,9 +1,12 @@
 import "./App.css";
 import Calendar from "./component/Calendar";
+import Title from "./component/Title";
+
 function App() {
   return (
-    <div>
+    <div className="CalenderPage">
       <Calendar />
+      <Title />
     </div>
   );
 }
