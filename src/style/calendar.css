@@ -47,6 +47,8 @@ button {
 .container .week {
   display: flex;
   color: white;
+  font-family: "NotoSans";
+  font-weight: 700;
 }
 
 .container .week .weekday {
@@ -73,6 +75,8 @@ button {
   height: 10vh;
   line-height: 10vh;
   color: white;
+  font-family: "NotoSans";
+  font-weight: 700;
 }
 
 .container .date .sunday {
