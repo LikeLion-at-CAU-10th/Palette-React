@@ -1,10 +1,17 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+}
 .datebar .title {
-  background-color: black;
-  width: 80vh;
-  height: 9vh;
-  border-top-left-radius: 15%;
-  border-top-right-radius: 15%;
+  height: 2.5vw;
+  background-color: rgba(0, 0, 0, 1);
+  position: absolute;
+  width: 12vw;
+  left: 10.6vw;
+  top: 10vw;
+  border-radius: 30px 30px 0 0/ 30px 30px 0 0;
   display: flex;
+  justify-content: center;
 }
 
 .datebar .title > button {
@@ -12,26 +19,29 @@
   margin-left: 5px;
   height: 20px;
   background: none;
-  display: flex;
 }
 .datebar.title .pagination {
-  display: flex;
 }
 
 .datebar.title .pagination button {
-  border: none;
   background: none;
-  display: flex;
 }
 
-.datebar .title .pagination .prevbutton {
-  background-color: red;
+.datebar .title .pagination .prevbutton button {
+  color: #fff;
+  background-color: black;
 }
 
-.datebar .title .pagination .nextbutton {
-  background-color: yellow;
+.datebar .title .pagination .nextbutton button {
+  color: #fff;
+  background-color: black;
 }
 
-.datebar .title .pagination .dateselection {
-  background-color: plum;
+.dateselection select {
+  color: #fff;
+  background-color: black;
+  border: none;
+  font-family: "NotoSans";
+  font-weight: 600;
+  font-size: medium;
 }

@@ -99,6 +99,11 @@ const Calendar = () => {
   return (
     <div className="container">
       <div className="week">{returnWeek()}</div>
+      <div className="line1"></div>
+      <div className="line2"></div>
+      <div className="line3"></div>
+      <div className="line4"></div>
+      <div className="line5"></div>
       <div className="date">{returnDay()}</div>
     </div>
   );

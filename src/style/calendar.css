@@ -7,15 +7,14 @@ button {
 }
 
 .container {
-  width: 150vh;
-  height: 75vh;
-  margin: auto;
-  padding: 20px 5px;
+  width: 56.82vw;
+  height: 34.6vw;
+  left: 10.6vw;
+  top: 12.5vw;
+  background: rgba(0, 0, 0, 1);
+  opacity: 1;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: black;
+  overflow: hidden;
 }
 
 .container .week {
@@ -26,8 +25,10 @@ button {
 }
 
 .container .week .weekday {
-  width: calc(150vh / 7);
+  width: calc(56.82vw / 7);
   text-align: center;
+  margin-top: 0.3vw;
+  margin-bottom: -2vw;
 }
 
 .container .week .sunday {
@@ -39,15 +40,15 @@ button {
 }
 
 .container .date {
-  margin-top: 20px;
+  margin-top: -0vw;
 }
 
 .container .date .weekday {
-  width: calc(150vh / 7);
+  width: calc(56.82vw / 7);
   float: left;
-  text-align: center;
-  height: 10vh;
-  line-height: 10vh;
+  text-align: left;
+  height: 13vh;
+  line-height: 13vh;
   color: white;
   font-family: "NotoSans";
   font-weight: 700;
@@ -59,4 +60,43 @@ button {
 
 .container .date .saturday {
   color: white;
+}
+
+.line1 {
+  width: 56.82vw;
+  height: 0.12vw;
+  background-color: white;
+  margin-top: 2.3vw;
+  position: absolute;
+}
+
+.line2 {
+  width: 56.82vw;
+  height: 0.12vw;
+  background-color: white;
+  margin-top: 8.7vw;
+  position: absolute;
+}
+.line3 {
+  width: 56.82vw;
+  height: 0.12vw;
+  background-color: white;
+  margin-top: 15.1vw;
+  position: absolute;
+}
+
+.line4 {
+  width: 56.82vw;
+  height: 0.12vw;
+  background-color: white;
+  margin-top: 21.5vw;
+  position: absolute;
+}
+
+.line5 {
+  width: 56.82vw;
+  height: 0.12vw;
+  background-color: white;
+  margin-top: 27.9vw;
+  position: absolute;
 }
