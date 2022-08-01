@@ -96,7 +96,7 @@ const Title = () => {
             <button onClick={prevMonth}>◀︎</button>
           </div>
           <div className="dateselection">
-            {yearControl()} {monthControl()}
+            {monthControl()} {yearControl()}
           </div>
           <div className="nextbutton">
             <button onClick={nextMonth}>▶︎</button>

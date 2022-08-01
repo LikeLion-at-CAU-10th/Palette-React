@@ -2,6 +2,7 @@ body {
   box-sizing: border-box;
   margin: 0;
 }
+
 .datebar .title {
   height: 2.5vw;
   background-color: rgba(0, 0, 0, 1);
@@ -44,4 +45,5 @@ body {
   font-family: "NotoSans";
   font-weight: 600;
   font-size: medium;
+  appearance: none;
 }
