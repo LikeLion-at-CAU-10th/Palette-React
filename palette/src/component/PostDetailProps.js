@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react'
 import { PostTitle, PostDate, PostContents, PostDateContainer } from '../styles/PDstyled'
 import {ButtonContainer, EditButton, DeleteButton} from "../styles/darkmode"
 import axios from 'axios';
-import DarkModeToggle from './DarkModeToggle';
-// import { useTheme } from 'native-base';
 
 
 
