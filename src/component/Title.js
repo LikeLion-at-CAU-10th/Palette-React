@@ -15,7 +15,6 @@ const Title = () => {
 
   const [selectedYear, setSelectedYear] = useState(today.year); //현재 선택된 연도
   const [selectedMonth, setSelectedMonth] = useState(today.month); //현재 선택된 달
-  const dateTotalCount = new Date(selectedYear, selectedMonth, 0).getDate(); //선택된 연도, 달의 마지막 날짜
 
   const prevMonth = useCallback(() => {
     //이전 달 보기 보튼
