@@ -40,10 +40,24 @@ const Calendar = () => {
   const monthControl = useCallback(() => {
     //달 선택박스에서 고르기
     let monthArr = [];
+    const monthName = [
+      "January",
+      "Feburary",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     for (let i = 0; i < 12; i++) {
       monthArr.push(
         <option key={i + 1} value={i + 1}>
-          {i + 1}
+          {monthName[i]}
         </option>
       );
     }
