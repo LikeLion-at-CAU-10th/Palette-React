@@ -1,5 +1,5 @@
-const mockdata = {
-    mockposts:[
+const postDetailData = {
+    postData:[
         {
             "id" : "1",
             "folderColor" : "blue",
@@ -115,4 +115,4 @@ const mockdata = {
 
 }
 
-export default mockdata;
+export default postDetailData;
