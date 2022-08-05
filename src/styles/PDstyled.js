@@ -1,26 +1,26 @@
 import styled from "styled-components"
 
 export const PostDetailBody = styled.div`
-/* props와 state => 배경색 받아오기 */
-/* 배경색이 검정색이 되면 글쓰는 부분의 그림자 색이 밝게? */
 background-color: blue;
 position: relative;
+display: flex;
 `
 
 //PostDetail.js
-export const PostDetailFlex = styled.div`
+export const PostDetailContainer=styled.div`
+flex-direction: column;
+background-color: blue;
+
 display: flex;
 justify-content: center;
 align-items: center;
 `
 
-export const PostDetailContainer=styled(PostDetailFlex)`
-flex-direction: column;
-
-`
-
 //PostDetailMenu.js
-export const MenuContainer=styled(PostDetailFlex)`
+export const MenuContainer=styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
 padding: 0 22.7vw 0 0;
 height: 3vw;
 margin: 13vw 0 0;
@@ -38,7 +38,10 @@ margin: 0 0 0 1vw;
 
 
 //Tab.js
-export const TabDom = styled(PostDetailFlex)`
+export const TabDom = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
     background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.fontColor};
@@ -93,7 +96,9 @@ flex-basis: 30%;
 width: 6vw;
 `
 
-export const PostDateContainer = styled(PostDetailFlex)`
+export const PostDateContainer = styled.div`
+display: flex;
+align-items: center;
 justify-content: space-between;
 flex-basis: 2%;
 color: ${(props) => props.theme.dateColor};
@@ -104,6 +109,7 @@ export const PostContents =styled.div`
 border: solid 0.0694vw transparent;
 padding: 1vw;
 flex-basis: 80%;
+overflow: scroll;
 `
 
 

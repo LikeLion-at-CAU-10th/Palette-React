@@ -15,13 +15,13 @@ const PostDetail = () => {
         <>
         <ThemeProvider theme={darkMode ? darkTheme : lightTheme}> 
         <GlobalStyles/>
-        <PostDetailFlex>
+        
         <PostDetailContainer>
             <PostDetailMenu>메뉴탭</PostDetailMenu>
             <PostDetailContents>글쓰는 부분</PostDetailContents>
             <DarkModeToggle darkMode={darkMode} setDarkMode={setDarkMode}/>
         </PostDetailContainer>
-        </PostDetailFlex>
+        
         </ThemeProvider>
         
         </>

@@ -17,8 +17,8 @@ const DarkMode = ({ darkMode, setDarkMode}) => {
 return (
     <>
             <DarkModeContainer>
-            <ToggleButton>
-                <ToggleBall onClick={toggleDarkMode}/>
+            <ToggleButton onClick={toggleDarkMode}>
+                <ToggleBall/>
             </ToggleButton>
             </DarkModeContainer>
     </>

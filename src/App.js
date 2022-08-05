@@ -1,22 +1,24 @@
 import React, {useState} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import PostDetail from './pages/PostDetail'
-import {PostDetailBody} from './styles/PDstyled'
-
-
 
 const App = () => {
 
   return (
     <>
-        <div> palette </div>
       <Routes>
-        <Route path="/post-detail" 
-        element={
-        <PostDetailBody>
-          <PostDetail></PostDetail>
-        </PostDetailBody>
-      }></Route>
+
+
+          
+            <Route path="/" element={<></>} ></Route>
+            <Route path="/calendar" element={<></>} />
+            <Route path="/post" element={<></>} />
+            <Route path="/folder" element={<></>} />
+
+            <Route path="/post-detail" element={<PostDetail/>}/>
+          
+
+        
       </Routes>
     
     </>
