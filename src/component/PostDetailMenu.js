@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Tab from './Tab'
 import {MenuContainer, ColorBox} from '../styles/PDstyled'
 
 
 
 const PostDetailMenu = () => {
+
+
     return (
         <>
         <MenuContainer>

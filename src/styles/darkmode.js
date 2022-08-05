@@ -66,13 +66,18 @@ margin-right: 4vw;
 
 `
 
-export const EditButton = styled.div`
+export const EditButton = styled.button`
 padding-right: 0.5vw;
 border-right: 0.1vw solid grey;
+border: transparent;
+background-color: transparent;
+color: ${(props) => props.theme.dateColor};
 
 `
 
-export const DeleteButton = styled.div`
+export const DeleteButton = styled.button`
 padding-left: 0.5vw;
-
+border: transparent;
+background-color: transparent;
+color: ${(props) => props.theme.dateColor};
 `

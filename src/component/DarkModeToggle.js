@@ -5,6 +5,7 @@ import {
     ToggleBall, 
     ToggleButton, 
     } from '../styles/darkmode';
+    
 
 const DarkMode = ({ darkMode, setDarkMode}) => {
     const toggleDarkMode = () => {
