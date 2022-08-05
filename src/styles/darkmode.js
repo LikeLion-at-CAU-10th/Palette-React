@@ -5,7 +5,7 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
     export const lightTheme = {
-    fontColor: "#2c2c2c",
+    fontColor: "black",
     bgColor: "white",
     dateColor: "grey",
     move: "0.1vw",

@@ -4,18 +4,14 @@ import {ButtonContainer, EditButton, DeleteButton} from "../styles/darkmode"
 import axios from 'axios';
 import DeleteModal from './DeleteModal'
 
-
-
 const PostDetailProps = ({darkMode, setDarkMode}) => {
     const [post, setPost] = useState([]);
-    
     
     useEffect(()=>{
         axios.get("https://e67dd659-cb1e-4eb4-a012-5e2e92b67b2a.mock.pstmn.io/postdetail")
         .then(response=>{
                 setPost(response.data[0]);
                 console.log(response.data[0]);
-        
             })
             
     }, []);

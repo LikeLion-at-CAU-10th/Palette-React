@@ -21,8 +21,6 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-/* left: 50%;
-top: 50%; */
 
 width: 40vw;
 height: 20vw;
@@ -36,30 +34,37 @@ font-size: 1.5vw;
 `
 const ModalMenu=styled.div`
 margin: 3vw 0 0 0;
+font-size: 1.9vw;
 `
 
 const YesButton=styled.button`
+margin: 0 5vw 0 0;
+width: 7vw;
+
 `
 
 const NoButton=styled.button`
+width: 7vw;
 `
 
-const DeleteModal = () => {
+const DeleteModal = ({showModal,closeModal}) => {
     return (
         <>
+        { showModal ?
+        
         <ModalBG>
             <ModalContainer>
                 
 
                 <ModalText> 이 게시물을 삭제하시겠습니까?</ModalText>
                 <ModalMenu>
-                    <YesButton>삭제</YesButton>
-                    <NoButton>노삭제</NoButton>
+                    <YesButton>yes</YesButton>
+                    <NoButton onClick={closeModal}>no</NoButton>
                 </ModalMenu>
 
             </ModalContainer>
             
-        </ModalBG>
+        </ModalBG> : null}
         
         
         </>
