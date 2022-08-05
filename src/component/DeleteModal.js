@@ -21,7 +21,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-
+border-radius: 10vw;
 width: 40vw;
 height: 20vw;
 
@@ -37,29 +37,31 @@ margin: 3vw 0 0 0;
 font-size: 1.9vw;
 `
 
-const YesButton=styled.button`
-margin: 0 5vw 0 0;
+const ModalButton=styled.button`
 width: 7vw;
-
+height: 3vw;
+border-color: transparent;
+border-radius: 2vw;
+font-family: "Poppins-Bold";
+background-color: ${(props) => props.theme.bgColor};
+color: ${(props) => props.theme.fontColor};
+margin : 0 2.5vw;
 `
 
-const NoButton=styled.button`
-width: 7vw;
-`
 
 const DeleteModal = ({showModal,closeModal}) => {
     return (
         <>
         { showModal ?
         
-        <ModalBG>
+        <ModalBG onClick={closeModal}>
             <ModalContainer>
                 
 
                 <ModalText> 이 게시물을 삭제하시겠습니까?</ModalText>
                 <ModalMenu>
-                    <YesButton>yes</YesButton>
-                    <NoButton onClick={closeModal}>no</NoButton>
+                    <ModalButton>Yes</ModalButton>
+                    <ModalButton onClick={closeModal}>No</ModalButton>
                 </ModalMenu>
 
             </ModalContainer>

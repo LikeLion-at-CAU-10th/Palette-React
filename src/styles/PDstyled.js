@@ -85,6 +85,7 @@ padding: 1vw;
 flex-basis: 5%;
 font-size: 1.5vw;
 align-items: center;
+line-height: -3vw;
 `
 export const PostTitleDiv =styled.div`
 `
@@ -110,6 +111,7 @@ border: solid 0.0694vw transparent;
 padding: 1vw;
 flex-basis: 80%;
 overflow: scroll;
+line-height: 3.1vw;
 `
 
 

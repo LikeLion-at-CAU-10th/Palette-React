@@ -35,6 +35,7 @@ const PostDetailProps = ({darkMode, setDarkMode}) => {
                 <PostDate>{post.year}년 {post.month}월 {post.date}일</PostDate>
                     <ButtonContainer>
                         <EditButton> 수정 </EditButton>
+                        <div> | </div>
                         <DeleteButton onClick={openModal}> 삭제 </DeleteButton>
                         <DeleteModal showModal={showModal} closeModal={closeModal}/>
                         {/* {modal === false ? <Modal /> : null} */}
