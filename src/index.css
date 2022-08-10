@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* 폰트 */
+/* -> 영어 */
+@font-face{
+  font-family : 'Poppins-Black';
+  src: url('./styles/fonts/Poppins-Black.woff') format('woff');
+}
+
+
+@font-face{
+  font-family : 'Poppins-Regular';
+  src: url('./styles/fonts/Poppins-Regular.woff') format('woff');
+}
+
+@font-face{
+  font-family : 'Poppins-Medium';
+  src: url('./styles/fonts/Poppins-Medium.woff') format('woff');
+}
+
+@font-face{
+  font-family : 'Poppins-MediumItalic';
+  src: url('./styles/fonts/Poppins-MediumItalic.woff') format('woff');
+}
+
+@font-face{
+  font-family : 'Poppins-Bold';
+  src: url('./styles/fonts/Poppins-Bold.woff') format('woff');
+}
+
+@font-face{
+  font-family : 'Poppins-BoldItalic';
+  src: url('./styles/fonts/Poppins-BoldItalic.woff') format('woff');
+}
+
+
