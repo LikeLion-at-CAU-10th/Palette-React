@@ -9,6 +9,7 @@ width: 1vw;
 height: 1vw;
 /* background-color: aliceblue; */
 `
+
 const ModalBG=styled.div`
 position: absolute;
 top:0;
@@ -34,7 +35,6 @@ border-radius: 50%;
 border: solid 0.1vw #000;
 background-color: ${(props)=> props.color};
 `
-
 
 const ColorModal = ({ showModal, closeModal }) => {
     return (

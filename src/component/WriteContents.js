@@ -8,6 +8,7 @@ flex-direction: column;
 background-color: white;
 height: 50vw;
 `
+
 export const TitleInput=styled.input`
 flex-basis: 6%;
 border: transparent;
@@ -24,6 +25,10 @@ outline : none;
 font-size: 1vw;
 `
 
+const ImgLable = styled.input`
+
+`
+
 const ImgUp = styled.input`
 width: 10vw;
 height: 3vw;
@@ -33,7 +38,14 @@ position: absolute;
 top: 13vw;
 right: 43vw;
 margin-left: 0.8vw;
-/* opacity: 0; */
+opacity: 0;
+
+`
+
+const ImgInput = styled.div`
+width: 5vw;
+height: 5vw;
+border: solid black 0.5vw;
 `
 
 const WriteContents = ({onChange, contents, title}) => {
@@ -49,13 +61,28 @@ const WriteContents = ({onChange, contents, title}) => {
         }
     }
 
-    const [imgBase64, setImgBase64] = useState([]); // 파일 base64
-    const [imgFile, setImgFile] = useState(null);
+    //이미지 미리보기
+    const [imgFile, setImgFile] = useState("");
 
-    const handleChangeFile = (e) => {
-        console.log(e.target.files);
+    const encodeFileToBase64 = (fileBlob) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileBlob);
+
+        return new Promise((resolve)=> {
+            reader.onload = () => {
+                setImgFile(reader.result);
+                resolve();
+                console.log(reader);
+            }
+        })
+        
     }
-
+    
+    const handleImg = (e) =>{
+        encodeFileToBase64(e.target.files[0]);
+    }
+    
+    
 
 
     return (
@@ -83,10 +110,11 @@ const WriteContents = ({onChange, contents, title}) => {
             
             />
 
-        <div>
-        <ImgUp type="file" accept='image/*' onClick={handleChangeFile } />
+    
+        <ImgUp id ="uploadimg" type="file" accept='image/*' onChange={handleImg} />
+        <ImgInput> {imgFile && <img src={imgFile} alt="미리보기"/>} </ImgInput>
+        
 
-        </div>
         </WriteContentDiv>
         
         
