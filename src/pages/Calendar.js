@@ -51,7 +51,7 @@ const CalendarPage = () => {
         minDetail="month" // 상단 네비게이션에서 '월' 단위만 보이게 설정
         maxDetail="month" // 상단 네비게이션에서 '월' 단위만 보이게 설정
         navigationLabel={null}
-        showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
+        showNeighboringMonth={true} //  이전, 이후 달의 날짜는 보이지 않도록 설정
         className="mx-auto w-full text-sm border-b"
         locale="en"
         tileContent={({ date, view }) => {

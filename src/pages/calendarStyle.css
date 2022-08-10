@@ -26,6 +26,13 @@ abbr[title] {
   text-decoration: none;
 }
 
+.react-calendar__month-view__days button {
+  border-top: 0.3px solid white;
+}
+.react-calendar__month-view__days__day--neighboringMonth abbr {
+  color: black;
+}
+
 .react-calendar__tile--now {
   padding: 0;
 }
@@ -68,9 +75,7 @@ abbr[title] {
   font-weight: bold;
   color: white;
 }
-.react-calendar__tile--hasActive:enabled:hover,
-.react-calendar__tile--hasActive:enabled:focus {
-}
+
 .react-calendar__tile--active {
   border-radius: 6px;
   font-weight: bold;
