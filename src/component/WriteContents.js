@@ -7,6 +7,7 @@ display: flex;
 flex-direction: column;
 background-color: white;
 height: 50vw;
+
 `
 
 export const TitleInput=styled.input`
@@ -20,14 +21,11 @@ font-size: 1.2vw;
 
 export const ContentsInput=styled.textarea`
 flex-basis: 85%;
-border: transparent;
+border: solid transparent;
 outline : none;
 font-size: 1vw;
 `
 
-const ImgLable = styled.input`
-
-`
 
 const ImgUp = styled.input`
 width: 10vw;
@@ -43,12 +41,14 @@ opacity: 0;
 `
 
 const ImgInput = styled.div`
-width: 5vw;
-height: 5vw;
-border: solid black 0.5vw;
+/* border: solid black; */
+display: flex;
+justify-content: center;
+align-items: center;
 `
 
 const WriteContents = ({onChange, contents, title}) => {
+
     const titleInput=useRef();
     const contentsInput=useRef();
     useEffect(()=>{
@@ -106,17 +106,13 @@ const WriteContents = ({onChange, contents, title}) => {
             cols="30" 
             rows="10"
             onChange={onChange}
-            ref={contentsInput}
-            
-            />
+            ref={contentsInput}    
+        />
 
-    
+
         <ImgUp id ="uploadimg" type="file" accept='image/*' onChange={handleImg} />
         <ImgInput> {imgFile && <img src={imgFile} alt="미리보기"/>} </ImgInput>
-        
-
         </WriteContentDiv>
-        
         
         </>
     )

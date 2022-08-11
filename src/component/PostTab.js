@@ -24,8 +24,6 @@ export const PostTabDom = styled.button`
 const PostTab = (props) => {
     
 
-
-
     return (
         <>
         <PostTabDom onClick={props.openModal}> {props.name} {props.img} </PostTabDom>

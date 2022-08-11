@@ -14,21 +14,25 @@ const SubmitSection = React.memo(({onSubmit})=>(
 export const PostSubmitDiv = styled.div`
 display:flex;
 justify-content: center;
+margin: 2vw;
 `
 export const SubmitButton = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 1vw;
-font-family: "Poppins-Bold";
-color: #000000;
-border-radius: 2.3vw;
-border: solid 0.1vw #000000;
-border-color: black;
-width: 6vw;
-height: 2vw;
-margin: 0 0 -1.5vw 0;
-cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+    font-family: "Poppins-Bold";
+    color: #000000;
+    border-radius: 2.3vw;
+    border: solid 0.1vw #000000;
+    width: 6vw;
+    height: 2vw;
+    margin: 0 0 -1.5vw 0;
+    cursor: pointer;
+    &:hover{
+        color: grey;
+        border: solid 0.1vw grey;
+    }
 `
 
 export const PostSection = styled.div`
@@ -78,8 +82,8 @@ const PostText = () => {
 
         })
 
-
     }
+
 
     return (
 

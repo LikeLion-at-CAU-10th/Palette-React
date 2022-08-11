@@ -4,8 +4,6 @@ import styled from "styled-components"
 import sticker from '../data/Star4.png'
 import camera from '../data/camera.png'
 import ColorModal from './ColorModal'
-import StickerModal from './StickerModal'
-import ImageModal from './ImageModal'
 
 export const MenuContainer=styled.div`
 display: flex;

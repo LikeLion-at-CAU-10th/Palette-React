@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {ModalDiv, ModalHeader, ModalTitle} from "../styles/PostModalStyled"
 import styled from 'styled-components'
 import closeIm from '../data/img/close.png'
@@ -24,6 +24,7 @@ display: flex;
 justify-content: center;
 padding: 0 3vw;
 flex-wrap: wrap;
+background-color: ${(props)=> props.bGcolor};
 `
 
 const Palette = styled.div`
@@ -36,20 +37,39 @@ border: solid 0.1vw #000;
 background-color: ${(props)=> props.color};
 `
 
+const BG = styled.div`
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+background-color: black;
+position: fixed;
+z-index: -1;
+`
+
 const ColorModal = ({ showModal, closeModal }) => {
+    const [bGcolor, setBGcolor] = useState('black');
+
+    const handleClick = (e) =>{
+        const pl = e.target.id;
+        setBGcolor(pl);
+        console.log(bGcolor);
+    }
+    // console.log(bGcolor);
+
     return (
         <>
         { showModal ?
         <>
-        <ModalBG >
+        <ModalBG>
         <ModalDiv>
         <ModalHeader>
             <ModalTitle> main color </ModalTitle>
             <CloseButton onClick={closeModal} src={closeIm}></CloseButton>
         </ModalHeader>
 
-        <PaletteContainer>{palette.palettes.map((palettes,i)=>(
-        <Palette color={palettes.color}/>))}
+        <PaletteContainer bGcolor={bGcolor}> {palette.palettes.map((palettes,i)=>(
+        <Palette id={`${palettes.color}`} color={palettes.color} onClick={handleClick}/> ))}
         </PaletteContainer>
 
         </ModalDiv>
