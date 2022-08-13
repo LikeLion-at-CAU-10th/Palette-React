@@ -24,7 +24,7 @@ display: flex;
 justify-content: center;
 padding: 0 3vw;
 flex-wrap: wrap;
-background-color: ${(props)=> props.bGcolor};
+background-color: ${(props)=> props.BGcolor};
 `
 
 const Palette = styled.div`
@@ -47,15 +47,17 @@ position: fixed;
 z-index: -1;
 `
 
-const ColorModal = ({ showModal, closeModal }) => {
-    const [bGcolor, setBGcolor] = useState('black');
+const ColorModal = ({ showModal, closeModal}) => {
+    const [BGcolor, setBGcolor] = useState('black');
 
     const handleClick = (e) =>{
         const pl = e.target.id;
         setBGcolor(pl);
-        console.log(bGcolor);
+        console.log(BGcolor);
+        
     }
-    // console.log(bGcolor);
+    console.log(BGcolor);
+    
 
     return (
         <>
@@ -68,7 +70,8 @@ const ColorModal = ({ showModal, closeModal }) => {
             <CloseButton onClick={closeModal} src={closeIm}></CloseButton>
         </ModalHeader>
 
-        <PaletteContainer bGcolor={bGcolor}> {palette.palettes.map((palettes,i)=>(
+        <PaletteContainer BGcolor={BGcolor}>
+        {palette.palettes.map((palettes,i)=>(
         <Palette id={`${palettes.color}`} color={palettes.color} onClick={handleClick}/> ))}
         </PaletteContainer>
 

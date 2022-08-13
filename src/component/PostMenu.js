@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PostTab from './PostTab'
 import styled from "styled-components"
 import sticker from '../data/Star4.png'
 import camera from '../data/camera.png'
-import ColorModal from './ColorModal'
+import {ModalDiv, ModalHeader, ModalTitle, CloseButton, ModalBG, Palette, PaletteContainer} from "../styles/PostModalStyled"
+import closeIm from '../data/img/close.png'
+import palette from '../data/ColorModalData'
 
 export const MenuContainer=styled.div`
 display: flex;
@@ -20,7 +22,7 @@ export const ColorBox=styled.div`
 width: 1vw;
 height: 1vw;
 border: #000000;
-background-color: blue;
+background-color: ${(props)=> props.BGcolor} ;
 margin: 0 0 0 1vw;
 `
 
@@ -38,43 +40,55 @@ height: 1.5vw;
 margin: 0 0 0 1vw;
 `
 
-export const ModalContainer=styled.div`
-position: fixed;
-top: 0;
-bottom : 0;
-right: 0;
-left: 0;
-display: flex;
-flex-direction: column;
-`
-
 
 const PostMenu = () => {
     
-
     const [showModal, setModal] = useState(false);
 
     const openModal = () =>{
         setModal(true);
         
     }
-    console.log(showModal);
     
-
     const closeModal = () =>{
         setModal(false);
-
     }
 
+    //팔레트 클릭 시 색상 state 받아오기
+    const [BGcolor, setBGcolor] = useState('black');
+
+    const handleClick = (e) =>{
+        const pl = e.target.id;
+        setBGcolor(pl);
+        // console.log(BGcolor);
+        
+    }
+    // console.log(BGcolor);
 
 
     return (
         <>
         <MenuContainer>
             <div>
-                <PostTab name='main color' img={<ColorBox/>} openModal={openModal}></PostTab>
-                <ColorModal showModal={showModal} closeModal={closeModal}/>
+                <PostTab name='main color' img={<ColorBox BGcolor={BGcolor} />} openModal={openModal}></PostTab>
+                
+                { showModal ? 
+                <ModalBG>
+                <ModalDiv>
+                <ModalHeader>
+                    <ModalTitle> main color </ModalTitle>
+                    <CloseButton onClick={closeModal} src={closeIm}></CloseButton>
+                </ModalHeader>
+        
+                <PaletteContainer BGcolor={BGcolor}>
+                {palette.palettes.map((palettes,i)=>(
+                <Palette id={`${palettes.color}`} color={palettes.color} onClick={handleClick}/> ))}
+                </PaletteContainer>
+                </ModalDiv>
+                </ModalBG> : null}
             </div>
+
+
             <div>
                 <PostTab name='sticker' img={<StickerBox src={sticker}/>} />
             </div>
@@ -85,12 +99,6 @@ const PostMenu = () => {
             </div>
             
         </MenuContainer>
-
-        {/* <ModalContainer>
-            <StickerModal/>
-            <ImageModal/>
-        </ModalContainer>
-         */}
         
         </>
     )

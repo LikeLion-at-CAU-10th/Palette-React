@@ -10,7 +10,6 @@ export const PostTabDom = styled.button`
     /* background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.fontColor}; */
     background-color: white;
-    color: black;
     font-family: "Poppins-Bold";
     font-size: 1.1111vw;
     border: solid 0.0694vw transparent;

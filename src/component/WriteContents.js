@@ -7,7 +7,6 @@ display: flex;
 flex-direction: column;
 background-color: white;
 height: 50vw;
-
 `
 
 export const TitleInput=styled.input`
@@ -51,6 +50,7 @@ const WriteContents = ({onChange, contents, title}) => {
 
     const titleInput=useRef();
     const contentsInput=useRef();
+
     useEffect(()=>{
         titleInput.current.focus();
     }, []);
@@ -83,7 +83,6 @@ const WriteContents = ({onChange, contents, title}) => {
     }
     
     
-
 
     return (
         <>
