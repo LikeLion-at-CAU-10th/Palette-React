@@ -44,6 +44,12 @@ const ImgInput = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
+width: 100%;
+height: 40%;
+`
+
+const ImgSize = styled.img`
+width: 25vw;
 `
 
 const WriteContents = ({onChange, contents, title}) => {
@@ -110,7 +116,9 @@ const WriteContents = ({onChange, contents, title}) => {
 
 
         <ImgUp id ="uploadimg" type="file" accept='image/*' onChange={handleImg} />
-        <ImgInput> {imgFile && <img src={imgFile} alt="미리보기"/>} </ImgInput>
+        
+        <ImgInput> {imgFile && <ImgSize src={imgFile} alt="미리보기"/>} </ImgInput>
+        
         </WriteContentDiv>
         
         </>

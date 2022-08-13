@@ -26,8 +26,8 @@ export const ModalTitle=styled.div`
 `
 
 export const CloseButton = styled.img`
-width: 1vw;
-height: 1vw;
+width: 1.2vw;
+height: 1.2vw;
 `
 
 export const ModalBG=styled.div`
@@ -55,4 +55,36 @@ cursor: pointer;
 border-radius: 50%;
 border: solid 0.1vw #000;
 background-color: ${(props)=> props.color};
+`
+//스티커 탭
+export const StickerMenu = styled.img`
+width: 2vw;
+height: 2vw;
+position: relative;
+right: 7vw;
+`
+
+export const StickerPalette = styled.div`
+width: 2vw;
+height: 2vw;
+background-color: ${(props)=> props.color};
+`
+
+export const StickerPaletteDiv = styled.div`
+display: flex;
+flex-wrap: wrap;
+width: 20vw;
+position: absolute;
+left: 32.5vw;
+top: 0.02vw;
+z-index: 1;
+`
+
+export const StiPalette = styled.img`
+padding: 1.1vw;
+margin-bottom: 2vw;
+
+width: 6vw;
+height: 6vw;
+
 `
