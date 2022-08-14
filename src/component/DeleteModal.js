@@ -55,9 +55,7 @@ const DeleteModal = ({showModal,closeModal}) => {
         { showModal ?
         
         <ModalBG onClick={closeModal}>
-            <ModalContainer>
-                
-
+            <ModalContainer onClick={(e) => e.stopPropagation()}>
                 <ModalText> 이 게시물을 삭제하시겠습니까?</ModalText>
                 <ModalMenu>
                     <ModalButton>Yes</ModalButton>
