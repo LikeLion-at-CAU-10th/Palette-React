@@ -90,7 +90,20 @@ background-color: white;
 export const ModalText=styled.div`
 color:${(props) => props.theme.bgColor};
 font-size: 1.5vw;
+font-family: "Poppins-Bold";
 `
+
+export const ModalTextF=styled(ModalText)`
+color:${(props) => props.FolderColor};
+font-size: 1.7vw;
+`
+
+export const ModalTextContainer=styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`
+
 export const ModalMenu=styled.div`
 margin: 3vw 0 0 0;
 font-size: 1.9vw;
@@ -106,7 +119,14 @@ font-size: 1vw;
 background-color: ${(props) => props.theme.bgColor};
 color: ${(props) => props.theme.fontColor};
 margin : 0 2vw;
+&:hover{
+        color: white;
+        border: solid 0.1vw transparent;
+        font-weight: 900;
+        background-color: ${(props) => props.FolderColor};
+    }
 `
+
 //post-submit
 export const PostSubmitDiv = styled.div`
 display:flex;

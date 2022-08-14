@@ -20,11 +20,11 @@ import {
     SubmitButton, 
     SubmitModalBG, 
     SubmitModalContainer, 
-    ModalText, 
+    ModalText, ModalTextF, ModalTextContainer,
     ModalMenu, 
     PostSubmitDiv, PostSection,
     PostWriteDiv, 
-    ModalButton } from '../styles/PostStyled'
+    ModalButton,} from '../styles/PostStyled'
 import closeIm from '../data/img/close.png'
 import palette from '../data/ColorModalData'
 import stickerPalette from '../data/stickerPaletteData'
@@ -37,7 +37,7 @@ import styled from 'styled-components'
 // import {GlobalStyles, darkTheme, lightTheme} from '../styles/darkmode'
 
 
-const SubmitSection = ({onSubmit, folderColor}) => {
+const SubmitSection = ({onSubmitFolder, folderColor, onSubmitPostDetail}) => {
 
     const [showModal, setModal] = useState(false);
 
@@ -49,16 +49,40 @@ const SubmitSection = ({onSubmit, folderColor}) => {
         setModal(false);
     }
 
+    const FolderColor=({folderColor})=>{
+        const fd = `${folderColor}`;
+
+        if (fd==='red') return("rgba(255, 58, 58, 0.9)");
+        else if (fd==='purple') return("rgba(205, 98, 255, 0.9)");
+        else if (fd==='blue') return("rgba(0, 56, 255, 0.9)");
+        else if (fd==='green') return("rgba(85, 214, 90, 0.9)");
+        else if (fd==='orange') return("rgba(255, 141, 35, 0.9)");
+        else if (fd==='yellow') return("rgba(251, 176, 5, 0.9)");
+        else if (fd==='black') return("rgba(101, 101, 101, 0.9)");
+    }
+
+
 return(
     <PostSubmitDiv>
-        <SubmitButton onClick={()=>{onSubmit(); openModal();}}>upload</SubmitButton>
+        <SubmitButton onClick={openModal}>upload</SubmitButton>
         {showModal ? 
         <SubmitModalBG onClick={closeModal}>
             <SubmitModalContainer onClick={(e) => e.stopPropagation()}>
-            <ModalText> 이 게시물은 {`${folderColor}`}에 업로드 되었습니다. </ModalText>
+                <ModalTextContainer>
+                    
+                    <>
+                    <ModalText > 이 게시물은 </ModalText>
+                    <ModalTextF FolderColor={FolderColor({folderColor})}> {`${folderColor}`} </ModalTextF>
+                    <ModalText> 폴더에 업로드 되었습니다 </ModalText></>
+                     {/* <ModalText> main color를 지정해주세요 </ModalText> */}
+                    
+                    
+
+                </ModalTextContainer>
+                
                 <ModalMenu>
-                    <ModalButton >폴더로 이동하기</ModalButton>
-                    <ModalButton>내가 쓴 글 보기</ModalButton>
+                    <ModalButton FolderColor={FolderColor({folderColor})} onClick={onSubmitFolder} >폴더로 이동하기</ModalButton>
+                    <ModalButton FolderColor={FolderColor({folderColor})} onClick={onSubmitPostDetail}>내가 쓴 글 보기</ModalButton>
                 </ModalMenu>
             </SubmitModalContainer>
         </SubmitModalBG> 
@@ -133,15 +157,21 @@ const Post = () => {
 
     const navigate = useNavigate();
 
-    const onSubmit = () => {
-        axios.post(``,{
-            title: inputs.title,
-            contents: inputs.contents,
-        } ).then(()=>{
-            // console.log(response)
-            navigate('../')
+    const onSubmitFolder = () => {
 
-        })
+        navigate(`../folder/${folderColor}`)
+        // axios.post(``,{
+        //     title: inputs.title,
+        //     contents: inputs.contents,
+        // } ).then(()=>{
+        //     // console.log(response)
+        //     navigate('../')
+
+        // })
+    }
+
+    const onSubmitPostDetail = () =>{
+        navigate(`../post-detail`)
     }
 
     return (
@@ -156,8 +186,8 @@ const Post = () => {
                         <PostTab name='main color' img={<ColorBox BGcolor={BGcolor} />} openModal={openColorModal}></PostTab>
                         
                         { showColorModal ? 
-                        <ModalBG>
-                        <ModalDiv>
+                        <ModalBG onClick={closeModal}>
+                        <ModalDiv onClick={(e) => e.stopPropagation()}>
                         <ModalHeader>
                             <ModalTitle> main color </ModalTitle>
                             <CloseButton onClick={closeModal} src={closeIm}></CloseButton>
@@ -177,8 +207,8 @@ const Post = () => {
                     <div id="selectSticker">
                         <PostTab name='sticker' img={<StickerBox src={sticker}/>} openModal={openStickerModal} />
                         { showStickerModal ? 
-                            <ModalBG>
-                            <ModalDiv>
+                            <ModalBG onClick={closeModal}>
+                            <ModalDiv onClick={(e) => e.stopPropagation()}>
                             <ModalHeader>
                                 <ModalTitle> sticker </ModalTitle>
                                 <StickerMenu src={stickerMenu} onClick={openStickerPModal}/>
@@ -223,7 +253,7 @@ const Post = () => {
                         </PostWriteDiv>
 
                         <SubmitSection 
-                        onSubmit={onSubmit} folderColor={folderColor} />
+                        onSubmitFolder={onSubmitFolder} onSubmitPostDetail={onSubmitPostDetail} folderColor={folderColor} />
 
                     </PostSection>
                     </TC>
