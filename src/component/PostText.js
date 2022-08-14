@@ -1,53 +1,39 @@
 import React,{useState} from 'react'
 import {useNavigate} from 'react-router-dom'
-import styled from 'styled-components'
 import WriteContents from './WriteContents';
 import axios from "axios";
+import {SubmitButton, SubmitModalBG, SubmitModalContainer, ModalText, ModalMenu, PostSubmitDiv, PostSection, PostWriteDiv, ModalButton} from '../styles/PostStyled'
 
-//업로드 버튼 부분
-const SubmitSection = React.memo(({onSubmit})=>(
-    <PostSubmitDiv>
-        <SubmitButton onClick={onSubmit}>upload</SubmitButton>
-    </PostSubmitDiv>
-));
+// 업로드 버튼 부분
+// + 업로드 되었다는 문구와 함께 어느 폴더로 업로드 되었는지 알려야 함
+const SubmitSection = ({onSubmit}) => {
 
-export const PostSubmitDiv = styled.div`
-display:flex;
-justify-content: center;
-margin: 2vw;
-`
-export const SubmitButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1vw;
-    font-family: "Poppins-Bold";
-    color: #000000;
-    border-radius: 2.3vw;
-    border: solid 0.1vw #000000;
-    width: 6vw;
-    height: 2vw;
-    margin: 0 0 -1.5vw 0;
-    cursor: pointer;
-    &:hover{
-        color: grey;
-        border: solid 0.1vw grey;
+    const [showModal, setModal] = useState(false);
+
+    const openModal = () =>{
+        setModal(true);
     }
-`
 
-export const PostSection = styled.div`
-    margin: 0px auto;
-    margin-top: 20px;
-    width: 90%;
-    display: flex; 
-    flex-direction: column;
-`
-export const PostWriteDiv = styled.div`
-width: 100%;
-display: flex;
-flex-direction: column;
-background-color: purple;
-`
+    const closeModal = () =>{
+        setModal(false);
+    }
+
+return(
+    <PostSubmitDiv>
+        <SubmitButton onClick={()=>{onSubmit(); openModal();}}>upload</SubmitButton>
+        {showModal ? 
+        <SubmitModalBG onClick={closeModal}>
+            <SubmitModalContainer onClick={(e) => e.stopPropagation()}>
+            <ModalText> 이 게시물은 000에 업로드 되었습니다. </ModalText>
+                <ModalMenu>
+                    <ModalButton >폴더로 이동하기</ModalButton>
+                    <ModalButton>내가 쓴 글 보기</ModalButton>
+                </ModalMenu>
+            </SubmitModalContainer>
+        </SubmitModalBG> 
+        : null}
+    </PostSubmitDiv>
+)};
 
 
 const PostText = () => {
@@ -74,14 +60,11 @@ const PostText = () => {
         axios.post(``,{
             title: inputs.title,
             contents: inputs.contents,
-            repls: [],
         } ).then(()=>{
             // console.log(response)
             navigate('../')
 
-
         })
-
     }
 
 
@@ -95,14 +78,12 @@ const PostText = () => {
                 <WriteContents
                 onChange={onChange}
                 title={title}
-                contents={contents}
-                ></WriteContents>
+                contents={contents}></WriteContents>
 
             </PostWriteDiv>
 
             <SubmitSection 
-            onSubmit={onSubmit}
-            />
+            onSubmit={onSubmit}/>
 
         </PostSection>
 
