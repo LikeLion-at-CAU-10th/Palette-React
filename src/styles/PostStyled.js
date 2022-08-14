@@ -40,6 +40,26 @@ width: 1.5vw;
 height: 1.5vw;
 margin: 0 0 0 1vw;
 `
+//post-contents
+export const PostTextContainer = styled.div`
+    height: 64.2361vw;
+    width: 59.6vw;
+    background-color: white;
+    color: black;
+    flex-direction: column;
+    box-shadow: 0.7vw 0.6vw 0.6vw rgba(0, 0, 0, 0.5);
+    margin-bottom: 10vw;
+`
+
+export const TC = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 5vw 7vw;
+    border: solid 0.0694vw transparent;
+    height: 53.5vw;
+    background-color: white;
+
+`
 
 //post-submit-modal
 export const SubmitModalBG = styled.div`

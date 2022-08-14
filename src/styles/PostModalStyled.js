@@ -47,14 +47,15 @@ flex-wrap: wrap;
 background-color: #2c2c2c;
 `
 
-export const Palette = styled.div`
+export const Palette = styled.input`
 width: 2.7vw;
 height: 2.7vw;
-margin: 0.5vw -0.5vw 1vw 0;
+margin: 0.5vw -0.9vw 1vw 0;
 cursor: pointer;
 border-radius: 50%;
 border: solid 0.1vw #000;
 background-color: ${(props)=> props.color};
+color: transparent;
 `
 //스티커 탭
 export const StickerMenu = styled.img`

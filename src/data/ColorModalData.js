@@ -1,19 +1,17 @@
 const palette ={
     palettes:[
-        {color:"#fff5f4"}, {color:"#fde4e0"}, {color:"#ffc8c7"}, {color:"#fea8a7"}, {color:"#ff8788"},
-        {color:"#ff6b6b"}, {color:"#fa5153"}, {color:"#f03e3e"}, {color:"#e42f2b"}, {color:"#c72b2e"},
+        {color:"#fff5f4", folder:"red"}, {color:"#fde4e0", folder:"red"}, {color:"#ffc8c7", folder:"red"}, {color:"#fea8a7", folder:"red"}, {color:"#ff8788", folder:"red"},
+        {color:"#ff6b6b", folder:"red"}, {color:"#fa5153", folder:"red"}, {color:"#f03e3e", folder:"red"}, {color:"#e42f2b", folder:"red"}, {color:"#c72b2e", folder:"red"},
+        {color:"#fff0f5", folder:"red"}, {color:"#fcdfeb", folder:"red"},{color:"#fcc2d8", folder:"red"},{color:"#f8a3c2", folder:"red"}, {color:"#f782ac", folder:"red"},
+        {color:"#f26496", folder:"red"}, {color:"#e64980", folder:"red"}, {color:"#da316c", folder:"red"}, {color:"#c0265c", folder:"red"}, {color:"#9d254d", folder:"red"},
 
-        {color:"#fff0f5"}, {color:"#fcdfeb"},{color:"#fcc2d8"},{color:"#f8a3c2"}, {color:"#f782ac"},
-        {color:"#f26496"}, {color:"#e64980"}, {color:"#da316c"}, {color:"#c0265c"}, {color:"#9d254d"},
+        {color:"#f8f0fd", folder:"purple"},{color:"#f4d9fa", folder:"blue"},{color:"#eebefa", folder:"blue"},{color:"#e499f6", folder:"blue"},{color:"#da78f3", folder:"blue"},
+        {color:"#cc5de8", folder:"blue"}, {color:"#c04add", folder:"blue"}, {color:"#ae3dc9", folder:"blue"}, {color:"#9d36b5", folder:"blue"}, {color:"#892d9c", folder:"blue"},
+        {color:"#f3f1ff", folder:"blue"}, {color:"#e5dbfe", folder:"blue"}, {color:"#cbbffe", folder:"blue"}, {color:"#b197fc", folder:"blue"},{color:"#9675fa", folder:"blue"},
+        {color:"#865ff8", folder:"green"}, {color:"#7951f2", folder:"green"}, {color:"#6e49e6", folder:"green"}, {color:"#6841da", folder:"green"}, {color:"#5f3dc7", folder:"green"},
 
-        {color:"#f8f0fd"},{color:"#f4d9fa"},{color:"#eebefa"},{color:"#e499f6"},{color:"#da78f3"},
-        {color:"#cc5de8"}, {color:"#c04add"}, {color:"#ae3dc9"}, {color:"#9d36b5"}, {color:"#892d9c"},
-
-        {color:"#f3f1ff"}, {color:"#e5dbfe"}, {color:"#cbbffe"}, {color:"#b197fc"},{color:"#9675fa"},
-        {color:"#865ff8"},{color:"#7951f2"}, {color:"#6e49e6"}, {color:"#6841da"}, {color:"#5f3dc7"},
-
-        {color:"#ecf2fe"}, {color:"#dae4ff"}, {color:"#bbc8ff"}, {color:"#91a6ff"}, {color:"#748efc"},
-        {color:"#5d7cf9"}, {color:"#4c6ef4"}, {color:"#4264ec"},{color:"#3d5ada"},{color:"#364fc6"},
+        {color:"#ecf2fe", folder:"green"}, {color:"#dae4ff", folder:"green"}, {color:"#bbc8ff", folder:"green"}, {color:"#91a6ff", folder:"green"}, {color:"#748efc", folder:"green"},
+        {color:"#5d7cf9", folder:"green"}, {color:"#4c6ef4", folder:"green"}, {color:"#4264ec", folder:"green"},{color:"#3d5ada", folder:"green"},{color:"#364fc6", folder:"green"},
 
         {color:"#e7f5fe"}, {color:"#ceebff"}, {color:"#a4d8ff"}, {color:"#74c0fc"}, {color:"#4eabf8"},
         {color:"#349aef"},{color:"#238be4"},{color:"#1c7ed7"},{color:"#1871c1"},{color:"#1764aa"},
