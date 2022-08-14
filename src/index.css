@@ -12,8 +12,6 @@ code {
     monospace;
 }
 
-/* 폰트 */
-/* -> 영어 */
 @font-face{
   font-family : 'Poppins-Black';
   src: url('./styles/fonts/Poppins-Black.woff') format('woff');
@@ -44,4 +42,5 @@ code {
   font-family : 'Poppins-BoldItalic';
   src: url('./styles/fonts/Poppins-BoldItalic.woff') format('woff');
 }
+
 
