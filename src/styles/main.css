@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background-color: black;
+  font-family: "Poppins", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.menu {
+  font-weight: 700;
+  font-size: 1.25vw;
+  line-height: 1.88vw;
+  font-style: normal;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+#calendar {
+  position: absolute;
+  width: 5.83vw;
+  height: 1.88vw;
+  left: 36.4vw;
+  top: 5.35vh;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.1s;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+#post {
+  position: absolute;
+  width: 2.92vw;
+  height: 1.88vw;
+  left: 48.54vw;
+  top: 5.35vh;
+  text-decoration: none;
+  color: #ffffff;
+  transition: 0.1s;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+#edit {
+  position: absolute;
+  cursor: pointer;
+  width: 6.04vw;
+  height: 1.88vw;
+  left: 57.76vw;
+  top: 5.35vh;
+  transition: 0.1s;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
+#account {
+  position: absolute;
+  cursor: pointer;
+  width: 2.3vw;
+  height: 2.3vw;
+  left: 93.75vw;
+  top: 4.87vh;
+  transition: 0.1s;
+}
+
+#calendar:hover,
+#post:hover,
+#edit:hover,
+#account:hover {
+  opacity: 0.8;
+}
+
+.buttons {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+#b1 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 57.42vw;
+  top: 13.52vh;
+  border-radius: 100%;
+  background: rgba(205, 98, 255, 0.9);
+  transition: 0.1s;
+}
+
+#b2 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 58.6vw;
+  top: 9.744vh;
+  border-radius: 100%;
+  background: rgba(255, 58, 58, 0.9);
+  transition: 0.1s;
+}
+
+#b3 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 61.1vw;
+  top: 9.744vh;
+  border-radius: 100%;
+  background: rgba(255, 141, 35, 0.9);
+  transition: 0.1s;
+}
+
+#b4 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 62.28vw;
+  top: 13.68vh;
+  border-radius: 100%;
+  background: rgba(247, 226, 37, 0.9);
+  transition: 0.1s;
+}
+
+#b5 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 61.1vw;
+  top: 17.3vh;
+  border-radius: 100%;
+  background: rgba(85, 214, 90, 0.9);
+  transition: 0.1s;
+}
+
+#b6 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 58.6vw;
+  top: 17.3vh;
+  border-radius: 100%;
+  background: rgba(0, 56, 255, 0.9);
+  transition: 0.1s;
+}
+
+#b7 {
+  position: absolute;
+  width: 1.88vw;
+  height: 1.88vw;
+  left: 59.85vw;
+  top: 13.52vh;
+  border-radius: 100%;
+  background: rgba(101, 101, 101, 0.9);
+  transition: 0.1s;
+}
+
+#b1:hover,
+#b2:hover,
+#b3:hover,
+#b4:hover,
+#b5:hover,
+#b6:hover,
+#b7:hover {
+  opacity: 0.8;
+}
+
+.circles {
+  cursor: pointer;
+}
+
+#c1 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 64.86vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(205, 98, 255, 0.9);
+  transition: 0.3s;
+}
+
+#c2 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 58.54vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(255, 58, 58, 0.9);
+  transition: 0.3s;
+}
+
+#c3 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 52.22vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(255, 141, 35, 0.9);
+  transition: 0.3s;
+}
+
+#c4 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 45.9vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(247, 226, 37, 0.9);
+  transition: 0.3s;
+}
+
+#c5 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 39.44vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(85, 214, 90, 0.9);
+  transition: 0.3s;
+}
+
+#c6 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 33.13vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(0, 56, 255, 0.9);
+  transition: 0.3s;
+}
+
+#c7 {
+  position: absolute;
+  width: 8.33vw;
+  height: 8.33vw;
+  left: 26.81vw;
+  top: 47.5vh;
+  border-radius: 100%;
+  background: rgba(101, 101, 101, 0.9);
+  transition: 0.3s;
+}
+
+#c1:hover,
+#c2:hover,
+#c3:hover,
+#c4:hover,
+#c5:hover,
+#c6:hover,
+#c7:hover {
+  opacity: 0.8;
+}
+
+#cc1,
+#cc2,
+#cc3,
+#cc4,
+#cc5,
+#cc6,
+#cc7 {
+  visibility: hidden;
+}
+
+.logo {
+  position: absolute;
+  width: 4.72vw;
+  height: 1.88vw;
+  left: 47.64vw;
+  top: 93.07vh;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.25vw;
+  line-height: 1.88vw;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* 애니메이션 추가 */
+
+@keyframes circleShow {
+  from {
+    opacity: 0;
+    /* transform: translateY(100px) scale(0.5); */
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.circles {
+  animation: circleShow 1.5s;
+}
