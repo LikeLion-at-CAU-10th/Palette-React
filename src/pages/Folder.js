@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import data from "../data/folderData";
 import PageList from "../component/PageList";
 
+const GlobalStyle = createGlobalStyle`
+html {
+    background-color:black;
+}`;
+
 const Folders = styled.div`
   display: flex;
+  justify-content: center;
+  margin-top: 3vw;
 `;
 const FolderIndexBar = styled.div`
   width: 3.9vw;
@@ -34,12 +41,13 @@ const Pages = styled.div`
 const FolderPage = () => {
   return (
     <div>
+      <GlobalStyle />
       <Folders>
         <FolderIndexBar>yellow</FolderIndexBar>
         <FolderIndex></FolderIndex>
-        <Pages>
-          <PageList pageList={data} />
-        </Pages>
+        <Pages></Pages>
+        {/* <PageList pageList={data} />
+        </Pages> */}
       </Folders>
     </div>
   );
