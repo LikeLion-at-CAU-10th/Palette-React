@@ -3,9 +3,11 @@ import styled from "styled-components";
 // import DateInput from './DateInput'
 
 export const WriteContentDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+display: flex;
+flex-direction: column;
+background-color: white;
+border: solid transparent 1vw;
+height: 70vh;
 `;
 
 export const TitleInput = styled.input`
@@ -18,27 +20,36 @@ export const TitleInput = styled.input`
 `;
 
 export const ContentBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 60vh;
+display: flex;
+flex-direction: column;
+overflow: auto; 
+overflow-x: hidden;
+/* min-height: 70vh; */
 `;
 
 export const ContentsInput = styled.textarea`
-  border: solid transparent;
-  outline: none;
-  font-size: 1vw;
-  resize: none;
-  min-height: 50vh;
+display: flex;
+border: solid transparent;
+outline: none;
+font-size: 1vw;
+resize: none;
+min-height: 35vh;
+
+overflow-y: auto;
+margin-bottom: -2vw;
 `;
 
 const ImgInput = styled.div`
   /* border: solid black; */
   max-width: 100%;
   transform: scale(0.7);
+  display: flex;
+  
 `;
 
 const ImgSize = styled.img`
   width: 100%;
+  margin: 0;
 `;
 
 const WriteContents = ({ onChange, contents, title, imgFile }) => {
@@ -71,22 +82,23 @@ const WriteContents = ({ onChange, contents, title, imgFile }) => {
 
         {/* <DateInput/> */}
         <ContentBox>
-          <ContentsInput
+            <ContentsInput
             name="contents"
             value={contents}
             placeholder="내용을 입력하세요"
             cols="50"
             rows="10"
             onChange={onChange}
-            ref={contentsInput}
-          />
+            ref={contentsInput}>
+            </ContentsInput>
 
-          <ImgInput>
+            <ImgInput>
             {" "}
             {imgFile && <ImgSize src={imgFile} alt="미리보기" />}{" "}
-          </ImgInput>
+            </ImgInput>
+
         </ContentBox>
-      </WriteContentDiv>
+    </WriteContentDiv>
     </>
   );
 };
