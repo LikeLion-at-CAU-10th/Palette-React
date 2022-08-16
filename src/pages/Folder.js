@@ -54,6 +54,11 @@ const Pages = styled.div`
     z-index: 9999;
   }
   font-family: "NotoSansKR";
+  overflow-y: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  overflow-x: none;
 `;
 
 const PagesDom = styled.div`
