@@ -52,7 +52,7 @@ const CirclesDom = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80%;
+  height: 70%;
 `;
 
 const MainPageDom = styled.div`
@@ -79,6 +79,12 @@ const Save = styled.div`
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
+const Logo = styled.div`
+  color: white;
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: bold;
+`;
 const PalettesDom = styled.div`
   display: flex;
   width: 100%;
@@ -183,6 +189,7 @@ const Main = () => {
           />
         ))}
       </CirclesDom>
+      <Logo>PALETTE</Logo>
     </MainPageDom>
   );
 };
