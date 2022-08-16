@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import data from "../data/folderData";
-import PageList from "../component/PageList";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -22,22 +21,18 @@ const Folders = styled.div`
 `;
 
 const FolderIndexBar = styled.div`
-  position: absolute;
-  top: 8.1vh;
-  right: 18vw;
-  height: 6vh;
-  width: 22.2vh;
+  width: 3vw;
+  height: 18vh;
   background: ${(props) => props.bgColor};
-  border-radius: 1em 1em 0 0;
-  font-size: 3.5vh;
+  border-radius: 1em 0 0 1em;
+  font-size: 2vh;
   font-weight: 900;
-  transform: rotate(-90deg);
   text-align: center;
   font-family: "Poppins-Black";
+  padding: 4px;
 `;
 
 const FolderIndex = styled.div`
-  position: relative;
   height: 76vh;
   background: ${(props) => props.bgColor};
   width: 20vw;
@@ -58,12 +53,19 @@ const Pages = styled.div`
   &:hover {
     z-index: 9999;
   }
-  font-family: NotoSansKR;
+  font-family: "NotoSansKR";
 `;
 
+const PagesDom = styled.div`
+  display: flex;
+`;
+
+const FolderIndexDom = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 const FolderPage = () => {
   const { color } = useParams();
-  // const folderList = ["red", "orange", "yellow", "green", "blue"];
   const navigate = useNavigate();
   const goToAnotherColor = (color) => {
     navigate(`/folder/${color}`);
@@ -81,6 +83,10 @@ const FolderPage = () => {
         return "#83e686";
       case "blue":
         return "hsl(227, 100%, 64%)";
+      case "pink":
+        return "#FEA8A7";
+      case "gray":
+        return "#ADB6BD";
       default:
         return "#FFFFF";
     }
@@ -94,28 +100,23 @@ const FolderPage = () => {
 
       <Folders>
         <Wrapper>
-          <FolderIndex bgColor={realBgColor}>
-            {data.postListData.map((data) => (
-              <FolderIndexBar bgColor={realBgColor}>
-                {data.category}
-              </FolderIndexBar>
+          <FolderIndexDom>
+            <FolderIndexBar bgColor={realBgColor}>{color}</FolderIndexBar>
+
+            <FolderIndex bgColor={realBgColor} />
+          </FolderIndexDom>
+
+          <PagesDom>
+            {data.postListData.map((data, i) => (
+              <Pages key={i} bgColor={data.color}>
+                <h4>{data.date}</h4>
+
+                <h5>{data.title}</h5>
+
+                <h5>{data.content}</h5>
+              </Pages>
             ))}
-          </FolderIndex>
-          {data.postListData.map((data) => (
-            <Pages key={data.i} bgColor={data.color}>
-              <text>
-                <p>
-                  <h4>{data.date}</h4>
-                </p>
-                <p>
-                  <h5>{data.title}</h5>
-                </p>
-                <p>
-                  <h4>{data.content}</h4>
-                </p>
-              </text>
-            </Pages>
-          ))}
+          </PagesDom>
         </Wrapper>
       </Folders>
     </div>
