@@ -39,11 +39,12 @@ const MenuTab = styled.div`
 `;
 
 const Buttons = styled.div`
-  width: 1.88vw;
-  height: 1.88vw;
+  width: 1.5vw;
+  height: 1.5vw;
   background-color: ${(props) => props.bgColorHex};
   border-radius: 100%;
   cursor: pointer;
+  margin-left: 0.5vw;
 `;
 
 const CirclesDom = styled.div`
@@ -64,16 +65,17 @@ const EditButtonDom = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-// const Save = styled.div`
-//   width: 4.3vw;
-//   height: 1.8vw;
-//   background-color: #000000;
-//   border: 2px solid #ffffff;
-//   border-radius: 2em 2em 2em 2em;
-//   color: #ffffff;
-//   text-align: center;
-//   cursor: pointer;
-// `;
+const Save = styled.div`
+  margin-top: 1vh;
+  width: 4vw;
+  height: 1.8vw;
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 2em 2em 2em 2em;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+`;
 
 const PalettesDom = styled.div`
   display: flex;
@@ -162,6 +164,7 @@ const Main = () => {
               />
             ))}
           </PalettesDom>
+          <Save>save</Save>
         </EditButtonDom>
       </Tabs>
 
