@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./component/Nav";
+import Main from "./pages/Main.js";
 
 const App = () => {
   return (
@@ -14,9 +15,12 @@ const App = () => {
 
         <Route path="/post-detail" element={<></>} />
         <Route path="/account" element={<></>} />
+        <Route path="/main" element={<Main />} />
       </Routes>
     </>
   );
 };
 
 export default App;
+
+
