@@ -1,23 +1,17 @@
-import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Nav from "./component/Nav";
 import Main from "./pages/Main.js";
-import NavFolder from "./component/NavFolder";
 import Post from "./pages/Post";
 import PostDetail from "./pages/PostDetail";
+import React from "react";
+import CalendarPage from "./pages/Calendar";
+
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route
-          path="/calendar"
-          element={
-            <>
-              <Nav />
-            </>
-          }
-        />
+
         <Route
           path="/post"
           element={
@@ -27,6 +21,7 @@ const App = () => {
             </>
           }
         />
+        <Route path="/calendar" element={<Navigate to="/calendar/purple" />} />
         <Route path="/folder" element={<Navigate to="/folder/purple" />} />
         <Route
           path="/folder/:category"
@@ -51,6 +46,15 @@ const App = () => {
           element={
             <>
               <Nav />
+            </>
+          }
+        />
+        <Route
+          path="/calendar/:color"
+          element={
+            <>
+              <Nav />
+              <CalendarPage />
             </>
           }
         />
