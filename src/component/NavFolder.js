@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import { Link }from 'react-router-dom'
 import styled from 'styled-components'
-import folderColor from '../data/folderColorData'
+import data from '../data/folderColorData'
 
 const NavFolderBG = styled.div`
 position: fixed;
@@ -36,16 +37,19 @@ opacity: 0;
 
 
 const NavFolder = ({showModal, closeModal}) => {
-
     return (
 <>
         {showModal?
         <>
         <CloseButton onClick={closeModal}/>
         <NavFolderBG>
-        <FolderModalCon>{folderColor.folderData.map((folders, i)=>(
-            <Folders color={folders.color} urlPara={folders.urlPara}></Folders>
-        ))}
+        <FolderModalCon>
+            {data.map((d,i) => (
+                <Link to={`/folder/${data[i].urlPara}`}>
+                <Folders color={data[i].color}  />
+            </Link>
+            ))}
+            
             
         </FolderModalCon>
         </NavFolderBG></>
