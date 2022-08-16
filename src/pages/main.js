@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Circles = styled.div`
   cursor: pointer;
@@ -75,6 +76,7 @@ const Save = styled.div`
   color: #ffffff;
   text-align: center;
   cursor: pointer;
+  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
 const PalettesDom = styled.div`
@@ -105,6 +107,14 @@ const selectColor = (color) => {
 };
 
 const Main = () => {
+  // const navigate = useNavigate();
+  // const goToPost =  {
+  //   navigate(`/post`);
+  // };
+  // const goToCalendar = {
+  //   navigate(`/calendar/red`);
+  // };
+
   const paletteColors = [
     "red",
     "orange",
@@ -135,18 +145,14 @@ const Main = () => {
     setVisibleColor(copy);
   };
 
-  // const closeColor = () => {
-  //   setColor(false);
-  // };
-
   return (
     <MainPageDom>
       <GlobalStyle />
       <Tabs>
-        <MenuTab left="36.40vw" width="13vw">
+        <MenuTab /*onClick={goToCalendar}*/ left="36.40vw" width="13vw">
           calendar
         </MenuTab>
-        <MenuTab left="48.54vw" width="5vw">
+        <MenuTab /*onClick={goToPost}*/ left="48.54vw" width="5vw">
           post
         </MenuTab>
         <EditButtonDom>
@@ -164,7 +170,7 @@ const Main = () => {
               />
             ))}
           </PalettesDom>
-          <Save>save</Save>
+          <Save visible={showEdit}>save</Save>
         </EditButtonDom>
       </Tabs>
 
