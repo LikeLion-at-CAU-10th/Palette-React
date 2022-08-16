@@ -1,0 +1,15 @@
+// status 200 성공
+{
+	"success" : true,
+	"message" : "로그인 성공",
+	"data": {
+        "userId" : "dbstjsdud99",
+				"nickname" : "yuniiyuns",
+				"visibleFolder" : ["blue", "red", "yellow"]
+    }
+}
+// status 403 실패
+{
+    "success": false,
+    "message": "로그인 실패"
+}
