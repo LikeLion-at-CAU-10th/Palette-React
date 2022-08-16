@@ -74,19 +74,19 @@ const FolderPage = () => {
   const folderIndexColor = (color) => {
     switch (color) {
       case "red":
-        return "#ff8b8b";
+        return "#FF3A3A";
       case "orange":
-        return "#ffad60";
+        return "#FF8D23";
       case "yellow":
-        return "rgba(250, 232, 76)";
+        return "#F6E225";
       case "green":
-        return "#83e686";
+        return "#55D65A";
       case "blue":
-        return "hsl(227, 100%, 64%)";
-      case "pink":
-        return "#FEA8A7";
+        return "#0038FF";
+      case "purple":
+        return "#CD62FF";
       case "gray":
-        return "#ADB6BD";
+        return "#656565";
       default:
         return "#FFFFF";
     }
