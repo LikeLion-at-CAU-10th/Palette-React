@@ -21,20 +21,18 @@ const PostDetailMenu = ({post}) => {
             
     }, []);
     
+    //prev 버튼 next 버튼 클릭하면 url 변화
     const navigate = useNavigate();
     const clickPrev = () => {
-        console.log('실행중');
-        navigate(`../post-detail/${folderColor}/id받아온거/prev`);
-        
+        navigate(`../post-detail/${folderColor}/id받아온거/prev`);    
     };
 
     const clickNext = () => {
-        console.log('실행중');
         navigate(`../post-detail/${folderColor}/id받아온거/next`);
-        
     };
     
     //url parameter 받아오기
+    //pathArray[1]=post-detail, pathArray[2]=폴더 색상(category), pathArray[3]=id
     const location = useLocation();
     useEffect(() => {
         console.log(location.pathname)
@@ -42,9 +40,6 @@ const PostDetailMenu = ({post}) => {
 
     const pathArray= (location.pathname || '').split('/');
     console.log(pathArray[2]);
-
-
-
 
     return (
         <>

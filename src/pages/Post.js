@@ -190,6 +190,8 @@ import {
         navigate(`../post-detail/${folderColor}/`);
     };
 
+
+    //img 파일 올리기
     const [imgFile, setImgFile] = useState("");
 
     const encodeFileToBase64 = (fileBlob) => {

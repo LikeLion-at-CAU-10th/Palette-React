@@ -21,16 +21,17 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-border-radius: 10vw;
-width: 40vw;
-height: 20vw;
+border-radius: 2vw;
+width: 33vw;
+height: 15vw;
 
 background-color: ${(props) => props.theme.fontColor};
+padding: 1.5vw;
 `
 const ModalText=styled.div`
 color:${(props) => props.theme.bgColor};
-font-size: 1.5vw;
-
+font-size: 1.3vw;
+margin: 0.5vw;
 `
 const ModalMenu=styled.div`
 margin: 3vw 0 0 0;
@@ -41,13 +42,16 @@ const ModalButton=styled.button`
 width: 7vw;
 height: 3vw;
 border-color: transparent;
-border-radius: 2vw;
+border-radius: 3vw;
 font-family: "Poppins-Bold";
-background-color: ${(props) => props.theme.bgColor};
-color: ${(props) => props.theme.fontColor};
+background-color: #F1F1F1;
+color: black;
+font-size: 1vw;
 margin : 0 2.5vw;
 `
-
+const ModalButtonNo=styled(ModalButton)`
+color: red;
+`
 
 const DeleteModal = ({showModal,closeModal}) => {
     return (
@@ -56,10 +60,11 @@ const DeleteModal = ({showModal,closeModal}) => {
         
         <ModalBG onClick={closeModal}>
             <ModalContainer onClick={(e) => e.stopPropagation()}>
+                <ModalText> 삭제한 게시물은 복구할 수 없습니다.</ModalText>
                 <ModalText> 이 게시물을 삭제하시겠습니까?</ModalText>
                 <ModalMenu>
-                    <ModalButton>Yes</ModalButton>
-                    <ModalButton onClick={closeModal}>No</ModalButton>
+                    <ModalButton>cancel</ModalButton>
+                    <ModalButtonNo onClick={closeModal}>delete</ModalButtonNo>
                 </ModalMenu>
 
             </ModalContainer>

@@ -2,22 +2,22 @@ const folderColor ={
     folderData: [
         {
             color: "rgba(205, 98, 255, 0.9)",
-            urlPara: "purple"
+            urlPara: "purple",
         },
 
         {
             color: "rgba(255, 58, 58, 0.9)",
-            urlPara: "red"
+            urlPara: "red",
         },
 
         {
             color: "rgba(255, 141, 35, 0.9)",
-            urlPara: "orange"
+            urlPara: "orange",
         },
 
         {
             color: "rgba(247, 226, 37, 0.9)",
-            urlPara: "yellow"
+            urlPara: "yellow",
         },
 
         {

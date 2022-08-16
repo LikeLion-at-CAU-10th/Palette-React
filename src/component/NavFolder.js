@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import folderColor from '../data/folderColorData'
 
@@ -37,6 +38,14 @@ opacity: 0;
 
 const NavFolder = ({showModal, closeModal}) => {
 
+    const navigate = useNavigate();
+
+    const changeFolder = (a) => {
+        navigate(`../folder/${a}`);
+        console.log(a)
+    };
+
+
     return (
 <>
         {showModal?
@@ -44,7 +53,9 @@ const NavFolder = ({showModal, closeModal}) => {
         <CloseButton onClick={closeModal}/>
         <NavFolderBG>
         <FolderModalCon>{folderColor.folderData.map((folders, i)=>(
-            <Folders color={folders.color} urlPara={folders.urlPara}></Folders>
+            <Folders key={i} color={folders.color} 
+            onClick={folders.func} 
+            ></Folders>
         ))}
             
         </FolderModalCon>

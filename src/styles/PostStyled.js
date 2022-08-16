@@ -49,6 +49,7 @@ import styled from "styled-components";
     margin: 0 0 0 1vw;
     z-index: 1;
     `;
+
     //post-contents
     export const PostTextContainer = styled.div`
     height: 64.2361vw;
@@ -90,10 +91,11 @@ import styled from "styled-components";
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 10vw;
-    width: 40vw;
-    height: 20vw;
+    border-radius: 2vw;
+    width: 30vw;
+    height: 15vw;
     background-color: white;
+    padding: 2vw;
     `;
 
     export const ModalText = styled.div`

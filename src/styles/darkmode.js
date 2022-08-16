@@ -50,7 +50,7 @@ export const ToggleButton = styled.div`
   height: 1.3vw;
   border-radius: 0.6vw;
   position: relative;
-  bottom: 63.4vw;
+  bottom: 65.5vw;
   left: 21vw;
 `;
 
@@ -61,6 +61,7 @@ export const ButtonContainer = styled.div`
 `;
 
 export const EditButton = styled.button`
+  font-size: 0.9vw;
   padding-right: 0.5vw;
   border-right: 0.1vw solid grey;
   border: transparent;
@@ -69,6 +70,7 @@ export const EditButton = styled.button`
 `;
 
 export const DeleteButton = styled.button`
+  font-size: 0.92vw;
   padding-left: 0.5vw;
   border: transparent;
   background-color: transparent;
