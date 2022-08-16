@@ -8,19 +8,6 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-// const PaletteColor = styled.div`
-//   position: absolute;
-//   background: ${(props) => props.color};
-//   opacity: 1;
-//   top: 3vw;
-//   left: ${(props) => props.left};
-//   border-radius: 100%;
-//   cursor: pointer;
-//   transition: 0.1s;
-//   width: 2vw;
-//   height: 2vw;
-// `;
-
 const Colored = styled.div`
   background: ${(props) => props.bgColor};
   border-radius: 50%;
@@ -52,7 +39,7 @@ const CalendarDom = styled.div`
 
 const PaletteDom = styled.div`
   display: flex;
-  width: 12vw;
+  width: 16vw;
   justify-content: space-between;
 `;
 const Palette = styled.div`
@@ -75,7 +62,15 @@ const CalendarPage = () => {
   const [value, onChange] = useState(new Date());
   const [mark, setMark] = useState([]);
   const { color } = useParams();
-  const folderList = ["red", "orange", "yellow", "green", "blue"];
+  const folderList = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple",
+    "gray",
+  ];
   const navigate = useNavigate();
   const goToAnotherColor = (color) => {
     navigate(`/calendar/${color}`);
@@ -84,15 +79,19 @@ const CalendarPage = () => {
   const selectPaletteColor = (color) => {
     switch (color) {
       case "red":
-        return "#ff8b8be6";
+        return "#FF3A3A";
       case "orange":
-        return "#ffad60";
+        return "#FF8D23";
       case "yellow":
-        return "rgba(250, 232, 76, 0.9)";
+        return "#F6E225";
       case "green":
-        return "#83e686e6";
+        return "#55D65A";
       case "blue":
-        return "hsl(227, 100%, 64%)";
+        return "#0038FF";
+      case "purple":
+        return "#CD62FF";
+      case "gray":
+        return "#656565";
       default:
         return "#FFFFF";
     }
@@ -103,13 +102,17 @@ const CalendarPage = () => {
       case "red":
         return "#FEA8A7";
       case "orange":
-        return "#FDD9A7";
+        return "#FAC379";
       case "yellow":
-        return "#FFF3BF";
+        return "#FCED9D";
       case "green":
         return "#8CE999";
       case "blue":
-        return "#6989ff";
+        return "#91A6FF";
+      case "purple":
+        return "#E499F6";
+      case "gray":
+        return "#CFD4DA";
       default:
         return "#FFFFF";
     }
@@ -118,11 +121,6 @@ const CalendarPage = () => {
   const realBgColor = selectDomColor(color);
 
   useEffect(() => {
-    // const fetchData = async ()=> {
-    //   const response = await axios.get(`palette.com/calendar/${color}`).then((response)=>{
-    //     setMark(response.data)
-    //   })
-    // }
     setMark(data.postsDetail);
   }, []);
 
