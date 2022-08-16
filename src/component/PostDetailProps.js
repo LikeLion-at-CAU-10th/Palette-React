@@ -3,8 +3,10 @@ import { PostTitle, PostDate, PostContents, PostDateContainer } from '../styles/
 import {ButtonContainer, EditButton, DeleteButton} from "../styles/darkmode"
 import axios from 'axios';
 import DeleteModal from './DeleteModal'
+import { useParams } from 'react-router-dom';
 
 const PostDetailProps = ({darkMode, setDarkMode}) => {
+
 
     //post에 대한 정보를 받아오는 state
     //post = postData에 저장된 배열 정보들
@@ -16,26 +18,34 @@ const PostDetailProps = ({darkMode, setDarkMode}) => {
                 setPost(response.data.postData);
                 // console.log(response.data);
             })
-            //date[0] : 년도, date[1] : 월, date[2] : 일
-            // console.log(date[0]);
-            
     }, []);
+
+
+    // let { useId } = useParams();
+    // console.log(useId);
+
 
     const [showModal, setModal] = useState(false);
 
     const openModal = () =>{
         setModal(true);
-
+        console.log('실행중');
     }
 
     const closeModal = () =>{
         setModal(false);
+    }
 
-    }
+    //날짜 split
     const changeDateForm = (dateString) => {
-        const date = post.date.split('-');
+
+        var date= (dateString || '').split('-');
+
+        // const date = post.date.split('-');
         return date;
+        
     }
+
     return (
         <>
             <PostTitle maincolor={post.color}>{post.title}</PostTitle>
@@ -49,7 +59,7 @@ const PostDetailProps = ({darkMode, setDarkMode}) => {
                         {/* {modal === false ? <Modal /> : null} */}
                     </ButtonContainer>
             </PostDateContainer>
-            <PostContents></PostContents>
+            <PostContents>{post.content}</PostContents>
 
         </>
         

@@ -16,7 +16,7 @@ import {
     StickerPaletteDiv,
     StiPalette,
     } from "../styles/PostModalStyled";
-    
+
     import {
     PostContainer,
     MenuContainer,
@@ -184,8 +184,9 @@ import {
         // })
     };
 
+    //post 요청 후 id 값 받아와서 post-detail/'color'/'id'로 navigate
     const onSubmitPostDetail = () => {
-        navigate(`../post-detail`);
+        navigate(`../post-detail/${folderColor}/`);
     };
 
     const [imgFile, setImgFile] = useState("");

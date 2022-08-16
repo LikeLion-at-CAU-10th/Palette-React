@@ -80,13 +80,14 @@ export const PostTitle =styled.div`
 border: solid 0.0694vw transparent;
 color: ${(props) => props.theme.fontColor};
 border-bottom-color: ${(props) => props.theme.dateColor};
-padding: 1vw;
+padding: 0 1vw 0;
 flex-basis: 5%;
 font-size: 1.5vw;
 align-items: center;
 line-height: -3vw;
 `
 export const PostTitleDiv =styled.div`
+
 `
 
 export const PostDate =styled.div`
@@ -109,7 +110,8 @@ export const PostContents =styled.div`
 border: solid 0.0694vw transparent;
 padding: 1vw;
 flex-basis: 80%;
-overflow: scroll;
+overflow: auto;
 line-height: 3.1vw;
+font-size: 1vw;
 `
 

@@ -3,7 +3,7 @@ import {TabDom, } from '../styles/PDstyled'
 
 const Tab = (props) => {
     return (
-        <TabDom> {props.name} {props.img} </TabDom>
+        <TabDom onClick={props.click}> {props.name} {props.img} </TabDom>
 
         
     )

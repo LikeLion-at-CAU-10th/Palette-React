@@ -42,14 +42,14 @@ z-index: 1;
 export const PaletteContainer = styled.div`
 display: flex;
 justify-content: center;
-padding: 0 3vw;
+padding: 0 2.5vw;
 flex-wrap: wrap;
 background-color: #2c2c2c;
 `
 
 export const Palette = styled.input`
-width: 2.7vw;
-height: 2.7vw;
+width: 3vw;
+height: 3vw;
 margin: 0.5vw -0.9vw 1vw 0;
 cursor: pointer;
 border-radius: 50%;

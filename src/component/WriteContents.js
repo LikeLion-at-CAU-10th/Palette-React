@@ -7,7 +7,8 @@ display: flex;
 flex-direction: column;
 background-color: white;
 border: solid transparent 1vw;
-height: 70vh;
+height: 90%;
+/* height: 50vh; */
 `;
 
 export const TitleInput = styled.input`

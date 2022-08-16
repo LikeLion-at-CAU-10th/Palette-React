@@ -154,7 +154,7 @@ import styled from "styled-components";
     border: solid 0.1vw #000000;
     width: 6vw;
     height: 2vw;
-    margin: 0 0 -1.5vw 0;
+    margin-top: -2vw ;
     cursor: pointer;
     &:hover {
         color: grey;
