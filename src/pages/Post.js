@@ -45,6 +45,7 @@ import {
     import WriteContents from "../component/WriteContents";
     import axios from "axios";
     import styled from "styled-components";
+    import { useParams } from "react-router-dom";
 
     // import {ThemeProvider} from 'styled-components'
     // import {GlobalStyles, darkTheme, lightTheme} from '../styles/darkmode'

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Tab from './Tab'
 import {MenuContainer, ColorBox} from '../styles/PDstyled'
 import axios from 'axios'
@@ -9,11 +9,8 @@ import axios from 'axios'
 const PostDetailMenu = ({post}) => {
 
     //post에 대한 정보를 받아오는 state
-    //post = postData에 저장된 배열 정보들
-
-    // const [post, setPost] = useState([]);
-    const [getId, setGetId] = useState('');
     const [folderColor, setFolderColor] = useState("");
+    const [getId, setGetId] = useState('');
     
     useEffect(()=>{
         axios.get("https://e67dd659-cb1e-4eb4-a012-5e2e92b67b2a.mock.pstmn.io/postdetail")
@@ -25,18 +22,28 @@ const PostDetailMenu = ({post}) => {
     }, []);
     
     const navigate = useNavigate();
-
     const clickPrev = () => {
         console.log('실행중');
-        navigate(`../post-detail/${folderColor}/prev`);
+        navigate(`../post-detail/${folderColor}/id받아온거/prev`);
         
     };
 
     const clickNext = () => {
         console.log('실행중');
-        navigate(`../post-detail/${folderColor}/next`);
+        navigate(`../post-detail/${folderColor}/id받아온거/next`);
         
     };
+    
+    //url parameter 받아오기
+    const location = useLocation();
+    useEffect(() => {
+        console.log(location.pathname)
+    }, [location]);
+
+    const pathArray= (location.pathname || '').split('/');
+    console.log(pathArray[2]);
+
+
 
 
     return (

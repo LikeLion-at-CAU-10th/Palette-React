@@ -20,10 +20,8 @@ const PostDetailProps = ({darkMode, setDarkMode}) => {
             })
     }, []);
 
-
     // let { useId } = useParams();
     // console.log(useId);
-
 
     const [showModal, setModal] = useState(false);
 

@@ -14,7 +14,7 @@ const App = () => {
         <Route path="/post" element={<Post />} />
         <Route path="/folder" element={<></>} />
 
-        <Route path="/post-detail" element={<PostDetail/>} />
+        <Route path="/post-detail/:category" element={<PostDetail/>} />
         <Route path="/account" element={<></>} />
       </Routes>
     </>
