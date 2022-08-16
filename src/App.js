@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/folder" element={<FolderPage />} />
+        <Route path="/folder/:color" element={<FolderPage />} />
       </Routes>
     </>
   );
