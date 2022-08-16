@@ -6,6 +6,8 @@ const Circles = styled.div`
   width: 8.33vw;
   height: 8.33vw;
   border-radius: 100%;
+margin-left:-2vw;
+opacity:0.8;
   background-color: ${(props) => props.bgColorHex};
   visibility : ${(props) => (props.visible ? "visible" : "hidden")};
 `;
@@ -60,6 +62,7 @@ const MainPageDom = styled.div`
 const EditButtonDom = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 // const Save = styled.div`
 //   width: 4.3vw;
@@ -81,19 +84,19 @@ const PalettesDom = styled.div`
 const selectColor = (color) => {
   switch (color) {
     case "red":
-      return "#ff8b8be6";
+      return "#FF3A3A";
     case "orange":
-      return "#ffad60";
+      return "#FF8D23";
     case "yellow":
-      return "rgba(250, 232, 76, 0.9)";
+      return "#F6E225";
     case "green":
-      return "#83e686e6";
+      return "#55D65A";
     case "blue":
-      return "hsl(227, 100%, 64%)";
+      return "#0038FF";
     case "purple":
-      return "purple";
-    case "black":
-      return "black";
+      return "#CD62FF";
+    case "gray":
+      return "#656565";
     default:
       return "black";
   }
@@ -107,7 +110,7 @@ const Main = () => {
     "green",
     "blue",
     "purple",
-    "black",
+    "gray",
   ];
   const [visibleColor, setVisibleColor] = useState([
     true,
@@ -141,11 +144,11 @@ const Main = () => {
         <MenuTab left="36.40vw" width="13vw">
           calendar
         </MenuTab>
-        <MenuTab left="48.54vw" width="10vw">
+        <MenuTab left="48.54vw" width="5vw">
           post
         </MenuTab>
         <EditButtonDom>
-          <MenuTab onClick={changeEditBtn} left="57.76vw" width="8vw">
+          <MenuTab onClick={changeEditBtn} left="57.76vw">
             edit
           </MenuTab>
           <PalettesDom visible={showEdit}>
