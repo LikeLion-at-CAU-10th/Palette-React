@@ -39,23 +39,22 @@ opacity: 0;
 const NavFolder = ({showModal, closeModal}) => {
     return (
 <>
-        {showModal?
+
         <>
         <CloseButton onClick={closeModal}/>
         <NavFolderBG>
         <FolderModalCon>
             {data.map((d,i) => (
                 <Link to={`/folder/${data[i].urlPara}`}>
-                <Folders color={data[i].color}  />
-            </Link>
+                <Folders color={data[i].color} />
+                </Link>
             ))}
             
             
         </FolderModalCon>
         </NavFolderBG></>
         
-    : null
-    }
+
 
     </>
 

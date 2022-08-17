@@ -56,7 +56,7 @@ const Nav = () => {
     const [showModal, setModal] = useState(false);
 
     const openModal = () =>{
-        setModal(true);
+        setModal(!showModal);
     }
 
     const closeModal = () =>{
@@ -74,10 +74,8 @@ const Nav = () => {
             <NavCenter>
                 <NavLink to ='/calendar' style={{textDecoration: 'none'}} id='drama'><NavText>calendar</NavText></NavLink>
                 <NavLink to ='/post' style={{textDecoration: 'none'}} ><NavText>post</NavText></NavLink>
-                <NavLink to ='/folder' style={{textDecoration: 'none'}}>
-
-                    <NavText onClick={openModal}>folder</NavText> 
-                    <NavFolder showModal={showModal} closeModal={closeModal} /></NavLink>
+                <NavText onClick={openModal}>folder</NavText> 
+                {showModal ? <NavFolder showModal={showModal} closeModal={closeModal} /> : null} 
             </NavCenter>
             <NavRight>
                 <NavLink to='/account'><AccountImg src={account} alt="no imag"/></NavLink>

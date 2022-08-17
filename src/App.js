@@ -5,6 +5,7 @@ import Post from "./pages/Post";
 import PostDetail from "./pages/PostDetail";
 import React from "react";
 import CalendarPage from "./pages/Calendar";
+import FolderPage from "./pages/Folder"
 
 const App = () => {
   return (
@@ -28,7 +29,7 @@ const App = () => {
           element={
             <>
               <Nav />
-              <div>안녕</div>
+              <FolderPage />
             </>
           }
         />
