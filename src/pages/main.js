@@ -38,6 +38,7 @@ const MenuTab = styled.div`
   text-decoration-thickness: 2px;
   left: ${(props) => props.left};
   width: ${(props) => props.width};
+  font-family: "Poppins-Bold";
 `;
 
 const Buttons = styled.div`
@@ -78,6 +79,7 @@ const Save = styled.div`
   text-align: center;
   cursor: pointer;
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+  font-family: "Poppins-Regular";
 `;
 
 const Logo = styled.div`

@@ -54,7 +54,7 @@ const Palette = styled.div`
 
 const PaletteZone = styled.div`
   display: flex;
-  width: 950px;
+  width: 65vw;
   justify-content: flex-end;
   margin-bottom: 1.5vh;
 `;
