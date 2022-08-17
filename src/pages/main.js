@@ -3,14 +3,14 @@ import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Circles = styled.div`
-  cursor: pointer;
-  width: 8.33vw;
-  height: 8.33vw;
-  border-radius: 100%;
+cursor: pointer;
+width: 8.33vw;
+height: 8.33vw;
+border-radius: 100%;
 margin-left:-2vw;
 opacity:0.8;
-  background-color: ${(props) => props.bgColorHex};
-  visibility : ${(props) => (props.visible ? "visible" : "hidden")};
+background-color: ${(props) => props.bgColorHex};
+visibility : ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
 const GlobalStyle = createGlobalStyle`
