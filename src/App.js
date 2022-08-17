@@ -25,7 +25,7 @@ const App = () => {
         <Route path="/calendar" element={<Navigate to="/calendar/purple" />} />
         <Route path="/folder" element={<Navigate to="/folder/purple" />} />
         <Route
-          path="/folder/:category"
+          path="/folder/:color"
           element={
             <>
               <Nav />

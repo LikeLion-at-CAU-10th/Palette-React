@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink, Link} from "react-router-dom";
+import data from '../data/folderColorData'
 
 const Circles = styled.div`
 cursor: pointer;
@@ -91,6 +92,9 @@ const PalettesDom = styled.div`
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
+
+
+
 const selectColor = (color) => {
   switch (color) {
     case "red":
@@ -151,16 +155,20 @@ const Main = () => {
     setVisibleColor(copy);
   };
 
+  
+
   return (
     <MainPageDom>
       <GlobalStyle />
       <Tabs>
-        <MenuTab /*onClick={goToCalendar}*/ left="36.40vw" width="13vw">
+        <NavLink to ="/calendar"><MenuTab /*onClick={goToCalendar}*/ left="36.40vw" width="13vw">
           calendar
-        </MenuTab>
-        <MenuTab /*onClick={goToPost}*/ left="48.54vw" width="5vw">
+        </MenuTab></NavLink>
+
+        <NavLink to ="/post"><MenuTab /*onClick={goToPost}*/ left="48.54vw" width="5vw">
           post
-        </MenuTab>
+        </MenuTab></NavLink>
+
         <EditButtonDom>
           <MenuTab onClick={changeEditBtn} left="57.76vw">
             edit
@@ -182,11 +190,14 @@ const Main = () => {
 
       <CirclesDom>
         {visibleColor.map((visible, i) => (
-          <Circles
+          <Link to={`/folder/${data[i].urlPara}`}>
+            <Circles
             key={i}
             bgColorHex={selectColor(paletteColors[i])}
-            visible={visible}
-          />
+            visible={visible}/>
+          </Link>
+          
+            
         ))}
       </CirclesDom>
       <Logo>PALETTE</Logo>
