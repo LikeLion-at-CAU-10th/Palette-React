@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate, NavLink, Link } from "react-router-dom";
 import data from "../data/folderColorData";
+import { folderList } from "./Calendar";
 
 const Circles = styled.div`
   cursor: pointer;
@@ -31,7 +32,7 @@ const MenuTab = styled.div`
   cursor: pointer;
   font-weight: 700;
   font-size: 1.3vw;
-  line-height: 5vw;
+  line-height: 4vw;
   color: #ffffff;
   white-space: nowrap;
   text-decoration-line: underline;
@@ -47,7 +48,6 @@ const Buttons = styled.div`
   background-color: ${(props) => props.bgColorHex};
   border-radius: 100%;
   cursor: pointer;
-  margin-left: 0.5vw;
 `;
 
 const CirclesDom = styled.div`
@@ -69,18 +69,19 @@ const EditButtonDom = styled.div`
   align-items: center;
 `;
 const Save = styled.div`
-  margin-top: 1vh;
-  width: 4vw;
-  height: 1.8vw;
+  margin-top: 1.5vh;
+  font-size: 0.8rem;
   background-color: #000000;
   border: 2px solid #ffffff;
-  border-radius: 2em 2em 2em 2em;
+  border-radius: 1em 1em 1em 1em;
   color: #ffffff;
-  text-align: center;
+  padding: 1% 3% 1% 3%;
   cursor: pointer;
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
   font-family: "Poppins-Bold";
-  font-size: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Logo = styled.div`
@@ -91,7 +92,8 @@ const Logo = styled.div`
 `;
 const PalettesDom = styled.div`
   display: flex;
-  width: 100%;
+  justify-content: space-between;
+  width: 120%;
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
@@ -124,16 +126,8 @@ const Home = () => {
   // const goToCalendar = {
   //   navigate(`/calendar/red`);
   // };
+  const paletteColors = folderList;
 
-  const paletteColors = [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "purple",
-    "gray",
-  ];
   const [visibleColor, setVisibleColor] = useState([
     true,
     true,

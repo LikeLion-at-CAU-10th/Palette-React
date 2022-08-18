@@ -38,13 +38,12 @@ const CalendarDom = styled.div`
 const PaletteDom = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100%;
 `;
 
 const Palette = styled.div`
   opacity: 1;
   border-radius: 0 40% 40% 0;
-  margin-bottom: 15%;
+  margin-top: 15%;
   cursor: pointer;
   transition: 0.1s;
   min-width: 2vw;
@@ -55,7 +54,11 @@ const Palette = styled.div`
 const PaletteZone = styled.div`
   display: flex;
   flex-direction: column;
-  height: 85vh;
+`;
+
+const CalendarZone = styled.div`
+  display: flex;
+  height: 80%;
 `;
 
 export const selectDomColor = (color) => {
@@ -78,19 +81,21 @@ export const selectDomColor = (color) => {
       return "#FFFFF";
   }
 };
+export const folderList = [
+  "gray",
+  "blue",
+  "green",
+  "yellow",
+  "orange",
+  "red",
+  "purple",
+];
+
 const CalendarPage = () => {
   const [value, onChange] = useState(new Date());
   const [mark, setMark] = useState([]);
   const { color } = useParams();
-  const folderList = [
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "blue",
-    "purple",
-    "gray",
-  ];
+
   const navigate = useNavigate();
   const goToAnotherColor = (color) => {
     navigate(`/calendar/${color}`);
@@ -128,40 +133,42 @@ const CalendarPage = () => {
   return (
     <>
       <CalendarDom bgColor={realBgColor}>
-        <Calendar
-          maxDetail="month" // 상단 네비게이션에서 '월' 단위만 보이게 설정
-          navigationLabel={null}
-          showNeighboringMonth={true} //  이전, 이후 달의 날짜는 보이지 않도록 설정
-          className="mx-auto w-full text-sm border-b"
-          locale="en"
-          tileContent={({ date, view }) => {
-            // 날짜 타일에 컨텐츠 추가하기 (html 태그)
-            // 추가할 html 태그를 변수 초기화
-            let html = [];
-            // 현재 날짜가 post 작성한 날짜 배열(mark)에 있다면, dot div 추가
-            const selected = mark.find(
-              (x) => x.date === moment(date).format("YYYY-MM-DD")
-            );
-            if (selected) {
-              html.push(<Colored bgColor={selected.color} />);
-            }
-            // 다른 조건을 주어서 html.push 에 추가적인 html 태그를 적용할 수 있음.
-            return <Dom>{html}</Dom>;
-          }}
-        />
-        <PaletteZone>
-          <PaletteDom>
-            {folderList.map((folder, i) => (
-              <Palette
-                onClick={() => {
-                  goToAnotherColor(folder);
-                }}
-                key={i}
-                color={selectPaletteColor(folder)}
-              />
-            ))}
-          </PaletteDom>
-        </PaletteZone>
+        <CalendarZone>
+          <Calendar
+            maxDetail="month" // 상단 네비게이션에서 '월' 단위만 보이게 설정
+            navigationLabel={null}
+            showNeighboringMonth={true} //  이전, 이후 달의 날짜는 보이지 않도록 설정
+            className="mx-auto w-full text-sm border-b"
+            locale="en"
+            tileContent={({ date, view }) => {
+              // 날짜 타일에 컨텐츠 추가하기 (html 태그)
+              // 추가할 html 태그를 변수 초기화
+              let html = [];
+              // 현재 날짜가 post 작성한 날짜 배열(mark)에 있다면, dot div 추가
+              const selected = mark.find(
+                (x) => x.date === moment(date).format("YYYY-MM-DD")
+              );
+              if (selected) {
+                html.push(<Colored bgColor={selected.color} />);
+              }
+              // 다른 조건을 주어서 html.push 에 추가적인 html 태그를 적용할 수 있음.
+              return <Dom>{html}</Dom>;
+            }}
+          />
+          <PaletteZone>
+            <PaletteDom>
+              {folderList.map((folder, i) => (
+                <Palette
+                  onClick={() => {
+                    goToAnotherColor(folder);
+                  }}
+                  key={i}
+                  color={selectPaletteColor(folder)}
+                />
+              ))}
+            </PaletteDom>
+          </PaletteZone>
+        </CalendarZone>
       </CalendarDom>
     </>
   );
