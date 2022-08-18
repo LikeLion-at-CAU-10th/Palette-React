@@ -30,21 +30,21 @@ const Dom = styled.div`
 const CalendarDom = styled.div`
   background-color: ${(props) => props.bgColor};
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
 `;
 
 const PaletteDom = styled.div`
   display: flex;
-  width: 16vw;
-  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100%;
 `;
+
 const Palette = styled.div`
   opacity: 1;
-  border-radius: 100%;
+  border-radius: 0 40% 40% 0;
+  margin-bottom: 15%;
   cursor: pointer;
   transition: 0.1s;
   min-width: 2vw;
@@ -54,10 +54,30 @@ const Palette = styled.div`
 
 const PaletteZone = styled.div`
   display: flex;
-  width: 65vw;
-  justify-content: flex-end;
-  margin-bottom: 1.5vh;
+  flex-direction: column;
+  height: 85vh;
 `;
+
+export const selectDomColor = (color) => {
+  switch (color) {
+    case "red":
+      return "#FEA8A7";
+    case "orange":
+      return "#FAC379";
+    case "yellow":
+      return "#FCED9D";
+    case "green":
+      return "#8CE999";
+    case "blue":
+      return "#91A6FF";
+    case "purple":
+      return "#E499F6";
+    case "gray":
+      return "#CFD4DA";
+    default:
+      return "#FFFFF";
+  }
+};
 const CalendarPage = () => {
   const [value, onChange] = useState(new Date());
   const [mark, setMark] = useState([]);
@@ -97,27 +117,6 @@ const CalendarPage = () => {
     }
   };
 
-  const selectDomColor = (color) => {
-    switch (color) {
-      case "red":
-        return "#FEA8A7";
-      case "orange":
-        return "#FAC379";
-      case "yellow":
-        return "#FCED9D";
-      case "green":
-        return "#8CE999";
-      case "blue":
-        return "#91A6FF";
-      case "purple":
-        return "#E499F6";
-      case "gray":
-        return "#CFD4DA";
-      default:
-        return "#FFFFF";
-    }
-  };
-
   const realBgColor = selectDomColor(color);
 
   useEffect(() => {
@@ -129,20 +128,6 @@ const CalendarPage = () => {
   return (
     <>
       <CalendarDom bgColor={realBgColor}>
-        <PaletteZone>
-          <PaletteDom>
-            {folderList.map((folder, i) => (
-              <Palette
-                onClick={() => {
-                  goToAnotherColor(folder);
-                }}
-                key={i}
-                color={selectPaletteColor(folder)}
-              />
-            ))}
-          </PaletteDom>
-        </PaletteZone>
-
         <Calendar
           maxDetail="month" // 상단 네비게이션에서 '월' 단위만 보이게 설정
           navigationLabel={null}
@@ -164,6 +149,19 @@ const CalendarPage = () => {
             return <Dom>{html}</Dom>;
           }}
         />
+        <PaletteZone>
+          <PaletteDom>
+            {folderList.map((folder, i) => (
+              <Palette
+                onClick={() => {
+                  goToAnotherColor(folder);
+                }}
+                key={i}
+                color={selectPaletteColor(folder)}
+              />
+            ))}
+          </PaletteDom>
+        </PaletteZone>
       </CalendarDom>
     </>
   );
