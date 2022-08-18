@@ -39,7 +39,8 @@ const Nav = () => {
   `;
   const NavText = styled.div`
     text-decoration: none;
-    margin: 2.5vw;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
     cursor: pointer;
     color: white;
     position: relative;
