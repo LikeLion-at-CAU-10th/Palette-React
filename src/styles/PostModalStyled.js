@@ -4,7 +4,7 @@ export const ModalDiv = styled.div`
   /* margin-top : 10vw; */
   position: absolute;
   width: 33vw;
-  height: 80vh;
+  height: 100%;
   background-color: #2c2c2c;
   padding: 1.5vw 0 8vw 0;
   cursor: pointer;
@@ -34,8 +34,9 @@ export const CloseButton = styled.img`
 `;
 
 export const ModalBG = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
+  height: 90vh;
   left: 0;
   bottom: 0;
   right: 0;
