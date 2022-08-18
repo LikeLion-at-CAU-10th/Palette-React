@@ -59,6 +59,7 @@ const PaletteZone = styled.div`
 const CalendarZone = styled.div`
   display: flex;
   height: 80%;
+  margin-top: 4%;
 `;
 
 export const selectDomColor = (color) => {
