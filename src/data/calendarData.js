@@ -18,8 +18,8 @@ const data = {
       id: 29,
       writer: "seonyeong",
       category: "blue",
-      color: "#89CFF0",
-      date: "2022-08-22",
+      color: "#ffff00",
+      date: "2022-09-22",
     },
   ],
 };

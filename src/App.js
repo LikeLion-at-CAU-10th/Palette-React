@@ -1,16 +1,17 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Nav from "./component/Nav";
-import Main from "./pages/Main.js";
+import Home from "./pages/Home.js";
 import Post from "./pages/Post";
 import PostDetail from "./pages/PostDetail";
 import React from "react";
 import CalendarPage from "./pages/Calendar";
+import FolderPage from "./pages/Folder";
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Main />}></Route>
+        <Route path="/" element={<Home />}></Route>
 
         <Route
           path="/post"
@@ -21,14 +22,14 @@ const App = () => {
             </>
           }
         />
-        <Route path="/calendar" element={<Navigate to="/calendar/purple" />} />
-        <Route path="/folder" element={<Navigate to="/folder/purple" />} />
+        <Route path="/calendar" element={<Navigate to="/calendar/red" />} />
+        <Route path="/folder" element={<Navigate to="/folder/red" />} />
         <Route
-          path="/folder/:category"
+          path="/folder/:color"
           element={
             <>
               <Nav />
-              <div>안녕</div>
+              <FolderPage />
             </>
           }
         />
