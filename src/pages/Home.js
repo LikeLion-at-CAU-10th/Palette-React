@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { useNavigate, NavLink, Link} from "react-router-dom";
-import data from '../data/folderColorData'
+import { useNavigate, NavLink, Link } from "react-router-dom";
+import data from "../data/folderColorData";
 
 const Circles = styled.div`
-cursor: pointer;
-width: 8.33vw;
-height: 8.33vw;
-border-radius: 100%;
-margin-left:-2vw;
-opacity:0.8;
-background-color: ${(props) => props.bgColorHex};
-visibility : ${(props) => (props.visible ? "visible" : "hidden")};
+  cursor: pointer;
+  width: 8.33vw;
+  height: 8.33vw;
+  border-radius: 100%;
+  margin-left: -2vw;
+  opacity: 0.8;
+  background-color: ${(props) => props.bgColorHex};
+  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
 const GlobalStyle = createGlobalStyle`
@@ -95,9 +95,6 @@ const PalettesDom = styled.div`
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
-
-
-
 const selectColor = (color) => {
   switch (color) {
     case "red":
@@ -119,7 +116,7 @@ const selectColor = (color) => {
   }
 };
 
-const Main = () => {
+const Home = () => {
   // const navigate = useNavigate();
   // const goToPost =  {
   //   navigate(`/post`);
@@ -158,19 +155,21 @@ const Main = () => {
     setVisibleColor(copy);
   };
 
-  
-
   return (
     <MainPageDom>
       <GlobalStyle />
       <Tabs>
-        <NavLink to ="/calendar"><MenuTab /*onClick={goToCalendar}*/ left="36.40vw" width="13vw">
-          calendar
-        </MenuTab></NavLink>
+        <NavLink to="/calendar">
+          <MenuTab /*onClick={goToCalendar}*/ left="36.40vw" width="13vw">
+            calendar
+          </MenuTab>
+        </NavLink>
 
-        <NavLink to ="/post"><MenuTab /*onClick={goToPost}*/ left="48.54vw" width="5vw">
-          post
-        </MenuTab></NavLink>
+        <NavLink to="/post">
+          <MenuTab /*onClick={goToPost}*/ left="48.54vw" width="5vw">
+            post
+          </MenuTab>
+        </NavLink>
 
         <EditButtonDom>
           <MenuTab onClick={changeEditBtn} left="57.76vw">
@@ -195,12 +194,11 @@ const Main = () => {
         {visibleColor.map((visible, i) => (
           <Link to={`/folder/${data[i].urlPara}`}>
             <Circles
-            key={i}
-            bgColorHex={selectColor(paletteColors[i])}
-            visible={visible}/>
+              key={i}
+              bgColorHex={selectColor(paletteColors[i])}
+              visible={visible}
+            />
           </Link>
-          
-            
         ))}
       </CirclesDom>
       <Logo>PALETTE</Logo>
@@ -208,4 +206,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
