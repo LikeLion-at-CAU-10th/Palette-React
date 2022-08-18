@@ -79,7 +79,8 @@ const Save = styled.div`
   text-align: center;
   cursor: pointer;
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
-  font-family: "Poppins-Regular";
+  font-family: "Poppins-Bold";
+  font-size: 1vw;
 `;
 
 const Logo = styled.div`
