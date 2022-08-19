@@ -6,12 +6,14 @@ import PostDetail from "./pages/PostDetail";
 import React from "react";
 import CalendarPage from "./pages/Calendar";
 import FolderPage from "./pages/Folder";
+import LoginPage from "./pages/login";
 
 const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<LoginPage />} />
 
         <Route
           path="/post"
