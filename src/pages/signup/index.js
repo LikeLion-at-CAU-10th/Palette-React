@@ -82,10 +82,11 @@ const SignUpPage = () => {
   const [mismatchError, setMismatchError] = useState(false);
   const [signUpError, setSignUpError] = useState("");
   const [signUpSuccess, setSignUpSuccess] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const [email, setEmail] = useState("");
   const emailRegex =
     /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/;
-  const passwordRegEx = /^[A-Za-z0-9]{8,30}$/;
   const navigate = useNavigate();
 
   const onChangeName = (e) => {
@@ -94,8 +95,16 @@ const SignUpPage = () => {
 
   const onChangePassword = useCallback(
     (e) => {
-      setPassword(e.target.value);
+      const passwordRegex =
+        /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+      const passwordCurrent = e.target.value;
+      setPassword(passwordCurrent);
       setMismatchError(e.target.value !== passwordCheck);
+      if (!passwordRegex.test(passwordCurrent)) {
+        setPasswordError(true);
+      } else {
+        setPasswordError(false);
+      }
     },
     [passwordCheck]
   );
@@ -108,9 +117,13 @@ const SignUpPage = () => {
     [password]
   );
 
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value);
-  };
+  const onChangeEmail = useCallback(
+    (e) => {
+      setEmail(e.target.value);
+      setEmailError(!emailRegex.test(email));
+    },
+    [email]
+  );
 
   const onSubmit = useCallback(
     (e) => {
@@ -120,35 +133,29 @@ const SignUpPage = () => {
       console.log(passwordCheck);
       if (!mismatchError) {
         // mismatchError이 false일 때, 즉, match 되었을 때
-        if (!emailRegex.test(email)) {
-          alert("이메일 형식이 틀렸어");
-        } else if (password.match(passwordRegEx) === null) {
-          alert("비번 형식이 틀렸어");
-        } else {
-          setSignUpError("");
-          setSignUpSuccess(false);
-          axios
-            .post(
-              "https://localhost:8000/signup",
-              {
-                nickname,
-                password,
-                email,
-              },
-              {
-                "Content-Type": "application/json",
-              }
-            )
-            .then((res) => {
-              setSignUpSuccess(true);
-              if (res.data.success) {
-                navigate("/login");
-              }
-            })
-            .catch((error) => {
-              setSignUpError(error.response.data);
-            });
-        }
+        setSignUpError("");
+        setSignUpSuccess(false);
+        axios
+          .post(
+            "https://localhost:8000/signup",
+            {
+              nickname,
+              password,
+              email,
+            },
+            {
+              "Content-Type": "application/json",
+            }
+          )
+          .then((res) => {
+            setSignUpSuccess(true);
+            if (res.data.success) {
+              navigate("/login");
+            }
+          })
+          .catch((error) => {
+            setSignUpError(error.response.data);
+          });
       }
     },
     [email, nickname, password, passwordCheck, mismatchError]
@@ -181,6 +188,9 @@ const SignUpPage = () => {
             ></FormInput>
           </FormInputDom>
         </InputDom>
+        <Mismatch visible={emailError}>
+          이메일 형식이 올바르지 않습니다.
+        </Mismatch>
         <InputDom>
           <InputTitle>비밀번호</InputTitle>
           <FormInputDom>
@@ -192,6 +202,9 @@ const SignUpPage = () => {
             ></FormInput>
           </FormInputDom>
         </InputDom>
+        <Mismatch visible={passwordError}>
+          숫자+영문자+특수문자 조합으로 8~25자로 입력해주세요.
+        </Mismatch>
         <InputDom>
           <InputTitle>비밀번호 확인</InputTitle>
           <FormInputDom>
