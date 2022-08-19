@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import logo from "../../data/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const LogoImg = styled.img`
   height: 1.5278vw;
@@ -91,17 +92,17 @@ const SubmitBtn = styled(FormInputDom)`
   cursor: pointer;
 `;
 
-const SignUpBtn = styled(SubmitBtn)`
+export const SignUpBtn = styled(SubmitBtn)`
   margin-top: 5%;
 `;
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   html {
     background: black;
   }
 `;
 
-const MainPageDom = styled.div`
+export const MainPageDom = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -110,6 +111,10 @@ const MainPageDom = styled.div`
 `;
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+  const handleSignUpBtn = () => {
+    navigate("/signup");
+  };
   return (
     <MainPageDom>
       <GlobalStyle />
@@ -130,7 +135,7 @@ const LoginPage = () => {
       <SignUpDom>
         <Border />
         <SignUpInto>Don't have an account?</SignUpInto>
-        <SignUpBtn>SIGN UP</SignUpBtn>
+        <SignUpBtn onClick={handleSignUpBtn}>SIGN UP</SignUpBtn>
       </SignUpDom>
     </MainPageDom>
   );

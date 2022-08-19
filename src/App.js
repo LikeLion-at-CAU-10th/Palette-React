@@ -7,6 +7,7 @@ import React from "react";
 import CalendarPage from "./pages/Calendar";
 import FolderPage from "./pages/Folder";
 import LoginPage from "./pages/login";
+import SingUpPage from "./pages/signup";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SingUpPage />} />
 
         <Route
           path="/post"
