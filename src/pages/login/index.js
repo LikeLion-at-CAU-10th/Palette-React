@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import styled, { createGlobalStyle } from "styled-components";
 import logo from "../../data/logo.png";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LogoImg = styled.img`
   height: 1.5278vw;
@@ -111,10 +112,48 @@ export const MainPageDom = styled.div`
 `;
 
 const LoginPage = () => {
+  const [loginError, setLoginError] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const handleSignUpBtn = () => {
     navigate("/signup");
   };
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleLoginBtn = useCallback(
+    (e) => {
+      axios
+        .post(
+          "https://localhost:8000/login",
+          {
+            email,
+            password,
+          },
+          {
+            "Content-Type": "application/json",
+          }
+        )
+        .then((res) => {
+          setLoginSuccess(true);
+          if (res.data.success) {
+            navigate("/");
+          }
+        })
+        .catch((error) => {
+          setLoginError(error.response.data);
+        });
+    },
+    [email, password]
+  );
   return (
     <MainPageDom>
       <GlobalStyle />
@@ -124,13 +163,23 @@ const LoginPage = () => {
       <LoginForm>
         <FormZone>
           <FormInputDom>
-            <FormInput placeholder="e-mail" />
+            <FormInput
+              type="text"
+              onChange={onChangeEmail}
+              value={email}
+              placeholder="e-mail"
+            />
           </FormInputDom>
           <FormInputDom>
-            <FormInput placeholder="password" />
+            <FormInput
+              type="text"
+              onChange={onChangePassword}
+              value={password}
+              placeholder="password"
+            />
           </FormInputDom>
         </FormZone>
-        <SubmitBtn>LOG IN</SubmitBtn>
+        <SubmitBtn onClick={handleLoginBtn}>LOG IN</SubmitBtn>
       </LoginForm>
       <SignUpDom>
         <Border />
