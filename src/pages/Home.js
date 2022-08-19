@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 import { useNavigate, NavLink, Link } from "react-router-dom";
 import data from "../data/folderColorData";
 import { folderList } from "./Calendar";
+import axios from "axios";
 
 const Circles = styled.div`
   cursor: pointer;
@@ -127,8 +128,18 @@ const Home = () => {
   //   navigate(`/calendar/red`);
   // };
   const paletteColors = folderList;
-
+  // visibleColor는 메인에 순간 순간 보이는 폴더들
   const [visibleColor, setVisibleColor] = useState([
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
+  // savedFolder는 저장된, 새로고침해도 변하지 않는 폴더 상태
+  const [savedFolder, setSavedFolder] = useState([
     true,
     true,
     true,
@@ -149,18 +160,36 @@ const Home = () => {
     setVisibleColor(copy);
   };
 
+  const folderSave = () => {
+    axios
+      .post(
+        "https://localhost:8000/saveFolder",
+        {
+          visibleColor,
+        },
+        {
+          "Content-Type": "application/json",
+        }
+      )
+      .then((res) => {
+        let copy = [...savedFolder];
+        copy = visibleColor;
+        setSavedFolder(copy);
+      });
+  };
+
   return (
     <MainPageDom>
       <GlobalStyle />
       <Tabs>
         <NavLink to="/calendar">
-          <MenuTab /*onClick={goToCalendar}*/ left="36.40vw" width="13vw">
+          <MenuTab left="36.40vw" width="13vw">
             calendar
           </MenuTab>
         </NavLink>
 
         <NavLink to="/post">
-          <MenuTab /*onClick={goToPost}*/ left="48.54vw" width="5vw">
+          <MenuTab left="48.54vw" width="5vw">
             post
           </MenuTab>
         </NavLink>
@@ -180,7 +209,9 @@ const Home = () => {
               />
             ))}
           </PalettesDom>
-          <Save visible={showEdit}>save</Save>
+          <Save visible={showEdit} onClick={folderSave}>
+            save
+          </Save>
         </EditButtonDom>
       </Tabs>
 
