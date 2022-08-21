@@ -161,6 +161,7 @@ const Home = () => {
   };
 
   const folderSave = () => {
+    setShowEdit(false);
     axios
       .post(
         "https://localhost:8000/saveFolder",
